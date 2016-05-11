@@ -2,4 +2,4 @@
 
 valid_course_time:
   course: active
-  seconds_since_midnight: 195
+  military_time: 15:30
