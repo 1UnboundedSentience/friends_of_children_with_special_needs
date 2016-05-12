@@ -1,4 +1,4 @@
-This app can be used to manage recipes. Eventually the goal is to predict a meal plan on a weekly or monthly basis based on preferences.
+This app can be used to aid the online workflow for FCSN organization: coordinate and simplify the registration process, sign up for classes, etc. 
 
 ## Getting Set Up
 The site is built with [Ruby](https://www.ruby-lang.org) on [Rails](http://rubyonrails.org/). Follow these steps to get it running on your local machine:
