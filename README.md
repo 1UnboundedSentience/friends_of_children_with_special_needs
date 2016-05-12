@@ -14,16 +14,18 @@ The site is built with [Ruby](https://www.ruby-lang.org) on [Rails](http://rubyo
 * Run `rake db:create`, `rake db:migrate` and `rake db:seed`.
 * To load the server, run `rails s`.
 * run `rake test` to run tests
-* Navigate to `localhost:3000`. To login use ? and ?
+* Navigate to `localhost:3000`. To login to admin, use `coodinator@fcsn.org`, PW: `testing123`.
+  To login as parent, use `parent@fcsn.org` PW: `testing123`
 
 #### Troubleshooting
 
 ## Contributing to the project
+* Forms are checked in under the [`forms`](https://github.com/bamohan/friends_of_children_with_special_needs/tree/master/forms/classes) directory
 * Assign yourself to an issue
 * Create a branch using the convention `[issue-number]-issue-description`. 'Example: 34-code-climate-issues'
 * Make code changes including necessary tests
 * Make incremental commits to make it easier to review PRs
-* Include `issue #[number]` in the commit message so it links the commit to the issue.
+* Include `[#issue_number]` in the commit message so it links the commit to the issue.
   * example: '[#34] Fix Codeclimate issues '
 * Create a PR, post the PR in the #rubyonrails slack channel and have it reviewed
 * Once you have :+1: :ship-it: or any words indicating your PR is good to be merged, merge it to master
