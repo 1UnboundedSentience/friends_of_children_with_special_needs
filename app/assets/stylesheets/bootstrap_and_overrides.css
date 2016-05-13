@@ -9,3 +9,10 @@
   .navbar-brand {
 	padding:0 20px 0 20px;
 }
+
+/*
+  Body padding required because the fixed-to-top navbar will overlay the content.
+ */
+body { 
+	padding-top: 70px; 
+}
