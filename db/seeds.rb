@@ -20,21 +20,29 @@
                              name: 'Sandi Metz')
   instructor  = User.new(is_instructor: true, email: 'instructor@fcsn.org', password: 'testing123', person: adult)
   coordinator = User.new(is_coordinator: true, email: 'coodinator@fcsn.org', password: 'testing123', person: adult)
-  course      = Course.create(
+
+#
+# Class portion
+#
+  art_class      = Course.create(
                   name: 'Art class',
                   description: 'Best art class eva!!!',
                   location: 'My House',
                   registration_start: '2015-05-10 12:53:24',
-                  registration_end: '2025-03-10 12:53:24',
-                  instructor: instructor,
-                  coordinator: coordinator,
-                  fees_in_cents: 1000,
+                  registration_end: '2015-07-10 12:53:24',
+                  instructor: art_instructor,
+                  coordinator: art_coordinator,
+                  fees_in_cents: 180,
                   comments: "Please bring your cameras with you. You will want a picture of the artwork",
-                  lowest_age: 1,
-                  highest_age: 16)
-  CourseDate.create(date: "2015-05-13", course: course)
+                  lowest_age: 12,
+                  highest_age: 22)
+  CourseDate.create(date: "2015-05-10", course: course)
   CourseTime.create(military_time: "15:30", course: course)
 
+
+#
+# Students portion
+#
   student_person = Person.new(
                     last_name: 'Hoover',
                     first_name: 'Student',
@@ -50,5 +58,21 @@
                         behavior_intervention_plan: false,
                         one_on_one_aide: true)
 
+
   EmergencyContact.create(person: adult, student: student)
   Registration.create(course: course, student: student, signature_svg: "my signature", photo_waiver: true)
+
+  student = Student.new(person: Persons.new(
+                        last_name: 'C',
+                        first_name: 'Emily'
+                        name: 'Emily C'
+                        )
+                        allergies: "Peanuts",
+                        birthday: "2001-11-28",
+                        gender: 'female',
+                        diagnosis: 'PDD',
+                        talents: "",
+                        comment: "",
+                        behavior_intervention_plan: false,
+                        one_on_one_aide: false)
+
