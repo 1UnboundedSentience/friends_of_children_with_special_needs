@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+emergency_contact:
+  person: user_person
+  student: valid_student
+  relationship_to_student: StudentContact.emergency_contact_role
+  emergency_contact_order: 1
+
+mother:
+  person: user_person
+  student: valid_student
+  relationship_to_student: StudentContact.mother_role
+
+father:
+  person: user_person
+  student: valid_student
+  relationship_to_student: StudentContact.father_role

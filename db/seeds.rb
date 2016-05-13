@@ -57,5 +57,7 @@
                         behavior_intervention_plan: false,
                         one_on_one_aide: true).find_or_create_by(diagnosis: 'ADD for seed data')
 
-  EmergencyContact.create_with(student: student).find_or_create_by(person: emergency_contact_person)
+  StudentContact.create_with(student: student).find_or_create_by(person: emergency_contact_person, relationship_to_student: StudentContact.emergency_contact_role)
+  StudentContact.create_with(student: student).find_or_create_by(person: parent_person, relationship_to_student: StudentContact.mother_role)
+
   Registration.create_with(course: course, student: student, photo_waiver: true).find_or_create_by(signature_svg: "my signature for seed")
