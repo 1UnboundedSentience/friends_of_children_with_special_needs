@@ -4,7 +4,7 @@ class Parent
   end
 
   def students
-    contacts = StudentContact.where(person_id: @person.id, relationship_to_student: ["StudentContact.mother_role", "StudentContact.father_role"])
+    contacts = StudentContact.where(person_id: @person.id, relationship_to_student: ["StudentContact.mother_role", "StudentContact.father_role", "Mother", "Father"])
     contacts.map(&:student)
   end
 
