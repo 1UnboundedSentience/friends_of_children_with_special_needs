@@ -26,3 +26,45 @@ user_person:
   last_name: Metz
   first_name: Adult
   name: Adult Metz
+
+younger_child:
+  email: 
+  cell_phone: 
+  home_phone: 
+  address_line_1: 
+  address_line_2: 
+  city: 
+  state: 
+  postal_code: 
+  work_phone: 
+  last_name: Jones
+  first_name: Bob
+  name: Bob Jones
+
+older_child:
+  email: 
+  cell_phone: 
+  home_phone: 
+  address_line_1: 
+  address_line_2: 
+  city: 
+  state: 
+  postal_code: 
+  work_phone: 
+  last_name: Jones
+  first_name: Alice
+  name: Alice Jones
+
+mother:
+  email: mother1@fcsn.org
+  cell_phone: 925-322-1111
+  home_phone: 925-322-1112
+  address_line_1: User Addr Line1
+  address_line_2: User Addr Line2
+  city: user_city
+  state: user_state
+  postal_code: 95015
+  work_phone: 925-322-1113
+  last_name: Jones
+  first_name: Mother
+  name: Mother Jones
