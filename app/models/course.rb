@@ -9,4 +9,14 @@ class Course < ActiveRecord::Base
 
   has_many :registrations
   has_many :students, through: :registrations
+
+  def instructor_name
+  	instructor.person.display_name
+  end
+
+  def coordinator_name
+  	coordinator.person.display_name
+  end
+  
 end
+
