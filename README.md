@@ -17,6 +17,19 @@ The site is built with [Ruby](https://www.ruby-lang.org) on [Rails](http://rubyo
 * Navigate to `localhost:3000`. To login to admin, use `coodinator@fcsn.org`, PW: `testing123`.
   To login as parent, use `parent@fcsn.org` PW: `testing123`
 
+## Git instructions to checkout code and work on an issue with example branch 30-model-changes
+* Ensure you have no local changes
+* Get the latest - `git fetch`
+* Set master to the latest master code - `git reset --hard orgin/master`
+* Assign the issue to yourself
+* Create a new branch from master: `git chekout -b <branch-name>`
+* Make changes and check-in incremental changes to your local github repo
+* When ready to push to github, `git push origin <branch-name>`
+* create a Pull Request - Olga has created a PR
+* Post the PR in the slack channel
+* When someone gives you the thumbs up, merge it into master. If you are waiting for other pieces to get checked-in, DO NOT
+* merge the code to master
+
 #### Troubleshooting
 
 ## Contributing to the project
