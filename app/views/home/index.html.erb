@@ -1,1 +1,15 @@
-<%= image_tag "FCSN-YO_03.gif", :width => "100%" %>
+<h1>Class selections</h1>
+<table class="table">
+  <thead>
+    <th>Child name</th>
+    <th>Class name</th>
+    <th>Photo Waiver</th>
+  </thead>
+  <tbody>
+    <% for registration in @registrations %>
+      <td><%=registration.student.person.display_name%></td>
+      <td><%=link_to registration.course.name%></td>
+      <td><%=registration.photo_waiver%></td>
+    <%end%>
+  </tbody>
+</table>
