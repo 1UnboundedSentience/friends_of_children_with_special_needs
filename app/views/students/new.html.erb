@@ -18,7 +18,7 @@
             <%= f.fields_for :person_attributes do |pf| %> 
               <tr> 
                 <td>
-                  <%= pf.label 'Name (First,Last): ' %>
+                  <%= pf.label 'Name : ' %>
                 </td>
                 <td>
                   <%= pf.text_field :first_name, 
@@ -28,9 +28,15 @@
                   </td>
                 </tr>
               <% end %> 
-              
-                <tr>
-                <td><%= f.label 'Gender: ' %></td>
+              <tr>
+                <td><%= f.label 'Birthdate : ' %></td>
+                <td>
+                  <%= f.date_field :birthday, placeholder: "Birthdate", 
+                      class: "form_control"%>
+                </td>
+              </tr>              
+              <tr>
+                <td><%= f.label 'Gender : ' %></td>
                 <td>
                   <%= f.radio_button :gender, 'male'%> 
                   <%= label 'male-gender', 'Male' %>
@@ -40,7 +46,7 @@
               </tr>
               <tr>
                 <td>
-                  <%= f.label 'Allergies: ' %> 
+                  <%= f.label 'Allergies : ' %> 
                 </td>
                 <td>  
                   <div>
@@ -51,12 +57,39 @@
               </tr>
               <tr>
                 <td>
-                  <%= f.label 'Diagonsis: ' %>
+                  <%= f.label 'Diagonsis : ' %>
                 </td>
                 <td>  
                   <%= f.text_field :diagnosis, placeholder: "Diagnosis", class: "form_control"%>
                 </td>
               </tr>
+              <tr>
+                <td><%= f.label 'Behavior Intervention Plan : ' %></td>
+                <td>
+                  <%= f.radio_button :behavior_intervention_plan, 'true'%> 
+                  <%= label 'behavior-intervention-plan-yes', 'Yes' %>
+                  <%= f.radio_button :behavior_intervention_plan, 'false'%> 
+                  <%= label 'behavior-intervention-plan-no', 'No' %>
+                </td>
+              </tr>              
+              <tr>
+                <td>
+                  <%= f.label 'Talents : ' %> 
+                </td>
+                <td>  
+                  <%= f.text_field :talents, placeholder: "Talents", 
+                      class: "form_control"%>
+                </td>
+              </tr> 
+              <tr>
+                <td>
+                  <%= f.label 'Comments : ' %> 
+                </td>
+                <td>  
+                  <%= f.text_field :comment, placeholder: "Comments", 
+                      class: "form_control"%>
+                </td>
+              </tr>               
               <tr>
                 <td> <%= f.label 'One on one aide?: '%></td>
                 <td>
