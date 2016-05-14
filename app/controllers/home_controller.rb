@@ -3,5 +3,8 @@ class HomeController < ApplicationController
 
   def registration_confirmation
   end
-  
+
+  def index
+    @registrations = Registration.all
+  end
 end
