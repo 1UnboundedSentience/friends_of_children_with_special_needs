@@ -1,5 +1,6 @@
 <h1>Course Assignments</h1>
 
+
 <% @students.each do |student| %>
 <h2><%= student.name %></h2>
 <div class="student-courses">
@@ -7,6 +8,13 @@
     <tr>
       <th>Registered</th>
       <th>Name</th>
+      <th>Description</th>
+      <th>Location</th>
+      <th>Instructor</th>
+      <th>Reg. End</th>
+      <th>Fees</th>
+      <th>Date></th>
+      <th>Time></th>
     </tr>
     <tbody>
       <% student.course_assignment.each do |course, assignment| %>
@@ -19,10 +27,16 @@
 	  <% end %>
 	</td>
 	<td><%= course.name %></td>
+  <td><%= course.description %></td>
+  <td><%= course.location %></td>
+  <td><%= User.find(course.instructor_id).person.name %></td>
+  <td><%= course.registration_end%></td>
+  <td><%= course.fees_in_cents%></td>
+  <td><%= CourseDate.where("course_id = ?", course.id).map{|t| t.date}%></td>
+  <td><%= CourseTime.where("course_id = ?", course.id).map{|t| t.military_time}%></td>
       </tr>
       <% end %>
     </tbody>
   </table>
-  <%= link_to 
 </div>
 <% end %>
