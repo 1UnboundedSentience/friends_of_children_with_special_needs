@@ -7,7 +7,7 @@
 	  <%= csrf_meta_tags %>
 	</head>
 	<body>
-		<nav class="navbar navbar-default">
+		<nav class="navbar navbar-default navbar-fixed-top">
 	    <div class="container-fluid">
 	      <!-- Brand and toggle get grouped for better mobile display -->
 	      <div class="navbar-header">
@@ -26,11 +26,12 @@
 	        <ul class="nav navbar-nav">
 	          <li class="active"><%= link_to 'Home', root_path %></li>
 	          <li class="active"><%= link_to 'Select Classes', root_path %></li>
-	          <!-- Shopping basket icon -> links to selected classes -->
+	          
+	          <!-- Shopping basket icon -->
 	          <li class="active">
 	          	<%= link_to root_path do %>
-	          		<%= fa_icon "shopping-basket" %>
-	          		[ # of selected classes ]
+	          		<!-- Replace '0' with the counter of selected classes -->
+	          		<%= fa_icon "shopping-basket" %> 0
 	          	<% end %>
 	          </li>
 	        </ul>

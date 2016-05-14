@@ -71,3 +71,24 @@
 		}
 
 /* End of styles for Parent View - SignUp - Page 6 - Final Page*/
+
+/*Start of styles for Parent View - Select Classes - Show page for classes*/
+h1#courseTitle{
+   text-align: center;
+   margin: 5%;
+   font-family:  Zapf Chancery, cursive;
+   color:#E86F05;
+
+}
+.courseName{
+    
+}
+tr#courseInfo{
+    background:#F5C187; 
+    font-weight:bold;
+}
+tr#courseInfo td{
+  border-right:1px solid #e7e7e7;
+}
+
+/*End of styles for Parent View - Select Classes - Show page for classes*/

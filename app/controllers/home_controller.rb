@@ -5,9 +5,12 @@ class HomeController < ApplicationController
   end
 
    def show
-  	@course = Course.find(@params.id)
+  	@course = Course.find(params[:id])
+  	@instructor = @course.instructor_name
+  	@coordinator = @course.coordinator_name
   end
-  
 
-
+  def index
+    @registrations = Registration.all
+  end
 end
