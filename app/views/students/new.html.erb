@@ -1,0 +1,127 @@
+<h3 class='page-header text-center'>Student Registrations</h3>
+
+<div class="row">
+  <div class="col-sm-7">
+    
+    <div class="panel panel-info">
+      
+      <div class="panel-heading">
+        <div class="panel-title">
+          <strong>New Student Registration</strong>
+        </div>
+      </div>
+
+      <div class="panel-body">
+        <table>
+          <tbody>
+          <%= form_for @student do |f| %>     
+            <%= f.fields_for :person_attributes do |pf| %> 
+              <tr> 
+                <td>
+                  <%= pf.label 'Name (First,Last): ' %>
+                </td>
+                <td>
+                  <%= pf.text_field :first_name, 
+                      placeholder: "First Name", class: "form_control"%>
+                  <%= pf.text_field :last_name, placeholder: "Last Name", 
+                      class: "form_control"%>
+                  </td>
+                </tr>
+              <% end %> 
+              
+                <tr>
+                <td><%= f.label 'Gender: ' %></td>
+                <td>
+                  <%= f.radio_button :gender, 'male'%> 
+                  <%= label 'male-gender', 'Male' %>
+                  <%= f.radio_button :gender, 'female'%> 
+                  <%= label 'female-gender', 'Female' %>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <%= f.label 'Allergies: ' %> 
+                </td>
+                <td>  
+                  <div>
+                  <%= f.text_field :allergies, placeholder: "Allergies", 
+                      class: "form_control"%>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <%= f.label 'Diagonsis: ' %>
+                </td>
+                <td>  
+                  <%= f.text_field :diagnosis, placeholder: "Diagnosis", class: "form_control"%>
+                </td>
+              </tr>
+              <tr>
+                <td> <%= f.label 'One on one aide?: '%></td>
+                <td>
+                  <%= f.radio_button :one_on_one_aide, 'true'%> 
+                  <%= label 'one-one_aide-yes', 'Yes' %>
+                  <%= f.radio_button :one_on_one_aide, 'false'%> 
+                  <%= label 'one-one_aide-no', 'No' %>
+                </td>
+              </tr> 
+              <%= f.fields_for :student_contacts_attributes do |scf| %>  
+                <tr>
+                  <td>
+                    <%= scf.label 'Relationship to Student: ' %>
+                  </td>
+                  <td>
+                    <%= scf.text_field :relationship_to_student %>
+                  </td>
+                </tr>
+              <% end %>  
+              <tr>
+                <td></td>
+                <td>
+                  <br>
+                  <%= f.submit "Register Student", class:"btn btn-info btn-md" %> 
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div> 
+  </div>
+
+  <div class="col-sm-5">
+     <div class="panel panel-info">
+      
+      <div class="panel-heading">
+        <div class="panel-title">
+          <strong>Currently Registred Students</strong>
+        </div>
+      </div>
+
+      <div class="panel-body">
+        <table class="table table-striped table-bordered">
+          
+          <thead>
+            <tr>
+              <td>Student Name</td>
+              <td>Gender</td>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @students.each do |curr_student| %>
+            <tr>
+              <td>
+                <%= curr_student.person.first_name.capitalize%>
+                <%= curr_student.person.last_name.capitalize %> 
+              </td>
+              <td>
+                <%= curr_student.gender %>
+              </td> 
+            </tr>
+            <% end %>
+          </tbody> 
+      </div>
+  </div>
+</div>
