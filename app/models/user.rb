@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :validatable
 
   belongs_to :person
+  accepts_nested_attributes_for :person
 end
