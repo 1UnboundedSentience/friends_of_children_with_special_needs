@@ -21,7 +21,7 @@
     <td><%= @course.location %></td>
     <td> <%=@instructor%> </td>
     <td><%= @coordinator%></td>
-    <td>$<%= @course.fees_in_cents %></td>
+    <td>$<%= @course.fees_in_cents/100%></td>
     <td><%= @course.lowest_age %></td>
     <td><%= @course.highest_age %></td>
     <td><%= @course.comments %></td>
