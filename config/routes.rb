@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   #TODO change this
   root 'home#index'
   get 'home/registration_confirmation'
+  get 'home/show'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

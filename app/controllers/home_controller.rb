@@ -3,5 +3,11 @@ class HomeController < ApplicationController
 
   def registration_confirmation
   end
+
+   def show
+  	@course = Course.find(@params.id)
+  end
   
+
+
 end
