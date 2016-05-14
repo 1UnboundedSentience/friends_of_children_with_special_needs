@@ -5,6 +5,8 @@ class RegistrationsController < ApplicationController
   end
 
   def edit
+    @student = Student.find(params[:id])
+    @course_assignment = @student.course_assignment
   end
 
   def update
