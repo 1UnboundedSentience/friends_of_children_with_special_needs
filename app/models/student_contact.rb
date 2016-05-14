@@ -2,7 +2,6 @@ class StudentContact < ActiveRecord::Base
   belongs_to :student
   belongs_to :person
 
-  # try
   accepts_nested_attributes_for :person
 
   RELATIONSHIP_TO_STUDENT_ROLES = {

@@ -1,5 +1,7 @@
 class StudentContactsController < ApplicationController
 
+	# TODO - WRITE TESTS FOR THIS MODEL !!!
+
 	def index
 		@studentContacts = StudentContact.all
 	end
@@ -15,7 +17,6 @@ class StudentContactsController < ApplicationController
 
 	def create
 		@studentContact = StudentContact.new(sc_params)
-		# @studentContact.person = @person
 		if commit == 'Save' && @studentContact.valid?
 			@studentContact.save
 			redirect_to student_contacts_path
@@ -28,12 +29,10 @@ class StudentContactsController < ApplicationController
 
 	def edit
 		@studentContact = StudentContact.find(params[:id])
-		# @person = Person.find(@studentContact.person_id)
 	end
 
 	def update
 		@studentContact = StudentContact.find(params[:id])
-		# @person = Person.find(@studentContact.person_id)
 		if commit == 'Save' && @studentContact.valid?
 			@studentContact.update(sc_params)
 			redirect_to student_contacts_path
@@ -46,7 +45,6 @@ class StudentContactsController < ApplicationController
 
 	def show
 		@studentContact = StudentContact.find(params[:id])
-		# @person = Person.find(@studentContact.person_id)
 	end
 
 	def destroy
