@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
-
-  get 'courses/index'
+  resources :registrations, only: %i(index)
+  resources :students, only: [] do
+    resources :registrations, only: %i(edit update)
+  end
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
