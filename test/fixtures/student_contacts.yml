@@ -15,3 +15,15 @@ father:
   person: user_person
   student: valid_student
   relationship_to_student: StudentContact.father_role
+
+
+mother_younger_child:
+  person: mother
+  student: younger_child
+  relationship_to_student: StudentContact.mother_role
+
+mother_older_child:
+  person: mother
+  student: older_child
+  relationship_to_student: StudentContact.mother_role
+
