@@ -2,8 +2,10 @@ Rails.application.routes.draw do
 
   resources :registrations, only: %i(index)
   resources :students, only: [] do
-    get 'edit_registrations', on: :member, to: 'registrations#edit'
-    put 'update_registrations', on: :member, to: 'registrations#update'
+    resources :registrations, only: %i(destroy), shallow: true
+    resources :courses, only: [] do
+      resources :registrations, only: %i(create), shallow: true
+    end
   end
 
   devise_for :users

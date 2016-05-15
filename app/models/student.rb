@@ -11,7 +11,7 @@ class Student < ActiveRecord::Base
 
   def course_assignment
     courses_available = Course.for_student(self)
-    Hash[courses_available.map {|course| [course, { registered: courses.include?(course) } ]}]
+    Hash[courses_available.map {|course| [course, { registered: courses.include?(course), registration: registrations.find_by(course_id: course.id)} ]}]
   end
 
   def age

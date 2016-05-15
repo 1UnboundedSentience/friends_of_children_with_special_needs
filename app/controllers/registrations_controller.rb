@@ -4,11 +4,16 @@ class RegistrationsController < ApplicationController
     @students = @parent.students
   end
 
-  def edit
-    @student = Student.find(params[:id])
-    @course_assignment = @student.course_assignment
+  def create
+    student = Student.find(params[:student_id])
+    course = Course.find(params[:course_id])
+    Registration.find_or_create_by(student: student, course: course)
+    redirect_to registrations_path
   end
 
-  def update
+  def destroy
+    registration = Registration.find(params[:id])
+    registration.delete
+    redirect_to registrations_path
   end
 end
