@@ -1,0 +1,29 @@
+
+<h1>Courses#index</h1>
+
+<table class="table table-bordered">
+      <tr>
+         <th>Check</th>
+         <th>Class</th>
+         <th>Description</th>
+         <th>Location</th>
+         <th>Instructor</th>
+         <th>Reg. End</th>
+         <th>Fees</th>
+      </tr>
+ <% @courses.each do |cr| %>
+     <tr>
+	    <td><input type="checkbox"></td>
+      	<td><%= cr.name %></td>
+      	<td><%= cr.description %></td>
+      	<td><%= cr.location %></td>
+      	<td><%= User.find(cr.instructor_id).person.name %></td>
+      	<td><%= cr.registration_end%></td>
+      	<td><%= cr.fees_in_cents%></td>
+     </tr>
+  <% end %>
+</table>
+ 
+ <td><%= link_to 'select_child', go_back_select_student() %></td>
+ <td><%= link_to "Next", class_summary_path() %></td>
+

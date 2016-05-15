@@ -1,0 +1,27 @@
+<h1>Course Assignment</h1>
+<h2><%= @student.name %></h2>
+
+<div class="student-courses">
+  <table class="table table-condensed">
+    <tr>
+      <th>Registered</th>
+      <th>Name</th>
+    </tr>
+    <tbody>
+      <form>
+	<% @student.course_assignment.each do |course, assignment| %>
+	<tr>
+	  <td>
+	    <% if assignment[:registered] %>
+	    yes
+	    <% else %>
+	    no
+	    <% end %>
+	  </td>
+	  <td><%= course.name %></td>
+	</tr>
+	<% end %>
+      </form>
+    </tbody>
+  </table>
+</div>

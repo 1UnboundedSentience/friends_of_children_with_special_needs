@@ -3,6 +3,11 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+
+  def current_person
+    current_user.person
+  end
+
   # TODO - modify this method to return the current_student instance
   def current_student
   	@current_student = Student.first
@@ -10,4 +15,5 @@ class ApplicationController < ActionController::Base
 
   # to make this method available in views
   helper_method :current_student 
+
 end
