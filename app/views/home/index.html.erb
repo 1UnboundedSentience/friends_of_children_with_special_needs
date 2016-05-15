@@ -4,12 +4,14 @@
     <th>Child name</th>
     <th>Class name</th>
     <th>Photo Waiver</th>
+    <th>Status</th>
   </thead>
   <tbody>
     <% for registration in @registrations %>
       <td><%=registration.student.person.display_name%></td>
       <td><%=link_to registration.course.name%></td>
       <td><%=registration.photo_waiver%></td>
+      <td><%=registration.status%></td>
     <%end%>
   </tbody>
 </table>
