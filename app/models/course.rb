@@ -10,6 +10,10 @@ class Course < ActiveRecord::Base
   has_many :registrations
   has_many :students, through: :registrations
 
+  def Course.for_student(student)
+    where("? BETWEEN registration_start AND registration_end AND lowest_age < ? AND highest_age > ?", Time.now, student.age, student.age)
+  end
+
   def instructor_name
   	instructor.person.display_name
   end
@@ -17,6 +21,5 @@ class Course < ActiveRecord::Base
   def coordinator_name
   	coordinator.person.display_name
   end
-  
 end
 

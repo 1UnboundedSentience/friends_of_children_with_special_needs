@@ -10,3 +10,25 @@ valid_student:
   comment: Gets agitated when there are mean people in the room
   behavior_intervention_plan: false
   one_on_one_aide: true
+
+younger_child:
+  person: younger_child
+  allergies: Nuts and mean people
+  birthday: 2010-05-05
+  gender: Male
+  diagnosis: ADD
+  talents: Loves to sing and swim
+  comment: Gets agitated when there are mean people in the room
+  behavior_intervention_plan: false
+  one_on_one_aide: true
+
+older_child:
+  person: older_child
+  allergies: Nuts and mean people
+  birthday: 2006-05-05
+  gender: Female
+  diagnosis: ADD
+  talents: Loves to sing and swim
+  comment: Gets agitated when there are mean people in the room
+  behavior_intervention_plan: false
+  one_on_one_aide: true
