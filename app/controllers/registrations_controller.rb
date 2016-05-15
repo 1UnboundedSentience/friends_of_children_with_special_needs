@@ -9,7 +9,7 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     super
     person=params["user"]["people"]
-    Person.create!({first_name: person["first_name"], 
+    @p=Person.create({first_name: person["first_name"], 
     	             last_name: person["last_name"],
     	             address_line_1: person["address_line_1"],
     	             address_line_2: person["address_line_2"],
@@ -21,13 +21,15 @@ class RegistrationsController < Devise::RegistrationsController
     	             cell_phone:  person["cell_phone"],
     	             email: params["user"]["email"]
     	             })
+    #redirect_to new_student_path
+    user_id = @p.id
+    user = User.find_by(email: params["user"]["email"])
+    user.update!(person_id: user_id)
   end
- 
-  private
- 
-  def sign_up_params
-    allow = [:first_name,:email, :password, :password_confirmation]
-    params.require(resource_name).permit(allow)
+  def after_sign_up_path_for(resource)
+    #'/students/new' 
+    new_student_path
   end
+  
   
 end
