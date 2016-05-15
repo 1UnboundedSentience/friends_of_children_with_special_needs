@@ -29,6 +29,7 @@ gem 'twitter-bootstrap-rails'
 gem 'devise-bootstrap-views'
 gem "font-awesome-rails"
 gem 'hirb'
+gem 'bootstrap_form'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

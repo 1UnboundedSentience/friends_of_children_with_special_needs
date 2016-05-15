@@ -6,9 +6,4 @@ class HomeControllerTest < ActionController::TestCase
     assert_response :redirect
   end
 
-  test "should get index if logged in" do
-  	get :index
-  	assert_template layout: "layouts/application"
-  end
-
 end
