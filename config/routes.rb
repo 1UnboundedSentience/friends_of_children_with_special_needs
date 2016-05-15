@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     end
   end
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: "devise/registrations" }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -16,8 +16,15 @@ Rails.application.routes.draw do
   #TODO change this
   root 'home#index'
 
+  get 'home/registration_confirmation'
 
-  # Example of regular route:
+  resources :home
+
+
+  resources :students
+  resources :student_contacts
+  resources :people
+
   #   get 'products/:id' => 'catalog#view'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

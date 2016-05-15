@@ -1,0 +1,32 @@
+<div class="showRegClass">
+<h1 id="courseTitle"> <span class="courseName"><%=@course.name%></span> Details </h1>
+<table class="table">
+  <tbody>
+    <tr id ="courseInfo" style=" ">
+        <td>Couse Name</td>
+        <td>Description</td>
+        <td>Location</td>
+        <td>Instructor </td>
+        <td>Coordinator</td>
+        <td>Couse Fees </td>
+        <td>Min Age</td>
+        <td>Max Age</td>
+        <td>Comments</td>
+
+    <tr>
+
+    <tr>
+    <td><%= @course.name %></td>
+    <td><%= @course.description %></td>
+    <td><%= @course.location %></td>
+    <td> <%=@instructor%> </td>
+    <td><%= @coordinator%></td>
+    <td>$<%= @course.fees_in_cents/100%></td>
+    <td><%= @course.lowest_age %></td>
+    <td><%= @course.highest_age %></td>
+    <td><%= @course.comments %></td>
+
+    <tr>
+  </tbody>
+</table>
+</div>

@@ -13,4 +13,13 @@ class Course < ActiveRecord::Base
   def Course.for_student(student)
     where("? BETWEEN registration_start AND registration_end AND lowest_age < ? AND highest_age > ?", Time.now, student.age, student.age)
   end
+
+  def instructor_name
+  	instructor.person.display_name
+  end
+
+  def coordinator_name
+  	coordinator.person.display_name
+  end
 end
+
