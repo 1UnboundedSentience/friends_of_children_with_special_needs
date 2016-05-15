@@ -1,0 +1,39 @@
+<% p = Person.find(@studentContact.person_id) %>
+<h2>Contact person <%= p.name %> for <%= Person.find(@studentContact.student_id).name %></h2>
+
+<table class="table">
+	<thead>
+	</thead>
+	<tbody>
+		<tr>
+			<th>First name: </th>
+			<td><%= p.first_name %></td>
+		</tr>
+		<tr>
+			<th>Last name: </th>
+			<td><%= p.last_name %></td>
+		</tr>
+		<tr>
+			<th>Cell phone: </th>
+			<td><%= p.cell_phone %></td>
+		</tr>
+		<tr>
+			<th>Home phone: </th>
+			<td><%= p.home_phone %></td>
+		</tr>
+		<tr>
+			<th>Work phone: </th>
+			<td><%= p.work_phone %></td>
+		</tr>
+		<tr>
+			<th>Email: </th>
+			<td><%= p.email %></td>
+		</tr>
+		<tr>
+			<th>Relationship: </th>
+			<td><%= @studentContact.relationship_to_student %></td>
+		</tr>
+	</tbody>
+</table>
+<%= link_to 'Edit', edit_student_contact_path(@studentContact), :class=>"btn btn-default", :role=>"button" %>
+<%= link_to 'Delete', @studentContact, method: :delete, :class=>"btn btn-default", :role=>"button" %>

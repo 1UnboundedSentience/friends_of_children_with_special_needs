@@ -4,6 +4,7 @@
     <th>Child name</th>
     <th>Class name</th>
     <th>Photo Waiver</th>
+    <th>Status</th>
   </thead>
   <tbody>
     <% for registration in @registrations %>
@@ -11,6 +12,7 @@
       <td><a href="/home/<%=registration.course.id%>"><%=registration.course.name%></a>
       </td>
       <td><%=registration.photo_waiver%></td>
+      <td><%=registration.status%></td>
     <%end%>
   </tbody>
 </table>

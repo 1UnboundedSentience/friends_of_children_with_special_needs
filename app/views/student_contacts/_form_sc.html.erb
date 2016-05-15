@@ -1,0 +1,16 @@
+<%= bootstrap_form_for(@studentContact, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-6", inline_errors: false) do |f| %>
+    <%= f.alert_message "Please fix the errors below." %>
+    <%= f.fields_for :person do |p| %>
+    	<%= p.text_field :first_name, label: "First name: ", placeholder: "Contact person first name" %>
+    	<%= p.text_field :last_name, label: "Last name: ", placeholder: "Contact person last name" %>
+    	<%= p.text_field :cell_phone, label: "Cell phone: ", placeholder: "Cell phone" %>
+    	<%= p.text_field :home_phone, label: "Home phone: ", placeholder: "Home phone" %>
+    	<%= p.text_field :work_phone, label: "Work phone: ", placeholder: "Work phone" %>
+    	<%= p.text_field :email, label: "Email: ", placeholder: "Email" %>
+    <% end %>
+    <%= f.text_field :relationship_to_student, label: "Relationship: ", placeholder: "Relationship to student" %>
+    <%= f.hidden_field :student_id %>
+
+    <%= f.submit 'Save' %>
+    <%= f.submit 'Cancel' %>
+<% end %>
