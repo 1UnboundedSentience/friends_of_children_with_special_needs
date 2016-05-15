@@ -1,0 +1,2 @@
+module StudentContactHelper
+end
