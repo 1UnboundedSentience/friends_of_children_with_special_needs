@@ -3,11 +3,12 @@ class StudentContactsController < ApplicationController
 	# TODO - WRITE TESTS FOR THIS MODEL !!!
 
 	def index
-		@studentContacts = StudentContact.all
+		@student = Student.find(params[:student_id])
+		@studentContacts = StudentContact.where(:student_id => @student.id)
 	end
 
 	def new
-		@studentContact = StudentContact.new(student_id: current_student.id)
+		@studentContact = StudentContact.new(student_id: params[:student_id])
 		@studentContact.build_person
 	end
 
@@ -18,10 +19,11 @@ class StudentContactsController < ApplicationController
 	def create
 		@studentContact = StudentContact.new(sc_params)
 		if commit == 'Save' && @studentContact.valid?
+			require 'pry'; binding.pry
 			@studentContact.save
-			redirect_to student_contacts_path
+			redirect_to student_contacts_path(student_id: @studentContact.student_id)
 		elsif commit == 'Cancel'
-			redirect_to student_contacts_path
+			redirect_to student_contacts_path(student_id: @studentContact.student_id)
 		else
 			render 'new.html.erb'
 		end
@@ -33,11 +35,12 @@ class StudentContactsController < ApplicationController
 
 	def update
 		@studentContact = StudentContact.find(params[:id])
+		require 'pry'; binding.pry
 		if commit == 'Save' && @studentContact.valid?
 			@studentContact.update(sc_params)
-			redirect_to student_contacts_path
+			redirect_to student_contacts_path(student_id: @studentContact.student_id)
 		elsif commit == 'Cancel'
-			redirect_to student_contacts_path
+			redirect_to student_contacts_path(student_id: @studentContact.student_id)
 		else
 			render 'edit.html.erb'
 		end
@@ -50,7 +53,7 @@ class StudentContactsController < ApplicationController
 	def destroy
 		@studentContact = StudentContact.find(params[:id])
 		@studentContact.destroy
-		redirect_to student_contacts_path	
+		redirect_to student_contacts_path(student_id: @studentContact.student_id)	
 	end
 
 	def sc_params

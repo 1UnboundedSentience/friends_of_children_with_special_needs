@@ -1,4 +1,4 @@
-<h2>List of Emergency Contacts for <%= Person.find(current_student.id).name %> </h2>
+<h2>List of Emergency Contacts for <%= @student.person.first_name %> <%= @student.person.last_name %> </h2>
 <table class="table table-hover">
 	<thead>
 		<tr>
@@ -12,7 +12,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		<% @studentContacts.where(:student_id => current_student.id).each do |sc| %>
+		<% @studentContacts.each do |sc| %>
 			<% p = Person.find(sc.person_id) %>
 			<tr>
 				<td><%= link_to 'Edit', edit_student_contact_path(sc), :class=>"btn btn-default btn-sm", :role=>"button" %>
