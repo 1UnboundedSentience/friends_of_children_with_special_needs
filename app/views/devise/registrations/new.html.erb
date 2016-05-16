@@ -4,7 +4,7 @@
     <h4><%= t('.sign_up', :default => "Parent Sign up") %></h4>
   </div>
   <div class="panel-body">
-    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { role: "form" }) do |f| %>
+    <%= form_for(resource, :as => resource_name, :url => user_registration_path(), html: { role: "form" }) do |f| %>
     <%= f.fields_for :people do |people_form| %>
      <div class="form-group">
       <%= people_form.label :First_Name %>
@@ -61,7 +61,7 @@
       <%= people_form.telephone_field :cell_phone, class: "form-control" %>
       </div>
     <% end %>
-      <%= f.submit t('.sign_up', :default => "Parent Sign up"), class: "btn btn-primary" %>
+      <%= f.submit t('sign_up', :default => "Parent Sign up"), class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>

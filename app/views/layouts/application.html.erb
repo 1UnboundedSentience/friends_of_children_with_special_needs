@@ -5,8 +5,11 @@
 	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 	  <%= csrf_meta_tags %>
+    <link rel="icon" 
+         type="image/png" 
+              href="/assets/FCSN_Logo_transparent-49e38f0520985afb57f8b58f579ef54414b84357de4a0010e6956f9273bbf810.gif">
 	</head>
-	<body>
+  <body> 
 		<nav class="navbar navbar-default navbar-fixed-top">
 	    <div class="container-fluid">
 	      <!-- Brand and toggle get grouped for better mobile display -->
@@ -25,7 +28,7 @@
 
 	        <ul class="nav navbar-nav">
 	          <li class="active"><%= link_to 'Home', root_path %></li>
-	          <li class="active"><%= link_to 'Select Classes', root_path %></li>
+	          <li class="active"><%= link_to 'Select Classes', registrations_path %></li>
 	          
 	          <!-- Shopping basket icon -->
 	          <li class="active">
@@ -48,7 +51,7 @@
 	    </div><!-- /.container-fluid -->
     </nav>
 
-		<div class = 'container'>
+    <div class = 'container'> 
 	    <% unless notice.nil? %>
 	      <div class="alert alert-success" role="alert"><p class="notice"><%= notice %></p></div>
 	    <% end %>

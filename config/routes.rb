@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { registrations: "registrations" }
+
+  resources :registrations, only: %i(index)
+  resources :students, only: [] do
+    resources :registrations, only: %i(destroy), shallow: true
+    resources :courses, only: [] do
+      resources :registrations, only: %i(create), shallow: true
+    end
+  end
+
+  devise_for :users, controllers: { registrations: "users/registrations" }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   resources :student_contacts
@@ -16,8 +25,6 @@ Rails.application.routes.draw do
   resources :student_contacts
   resources :people
 
-
-  # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
