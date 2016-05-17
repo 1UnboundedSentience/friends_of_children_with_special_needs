@@ -29,14 +29,9 @@
 	        <ul class="nav navbar-nav">
 	          <li class="active"><%= link_to 'Home', root_path %></li>
 	          <li class="active"><%= link_to 'Select Classes', registrations_path %></li>
-	          
-	          <!-- Shopping basket icon -->
-	          <li class="active">
-	          	<%= link_to root_path do %>
-	          		<!-- Replace '0' with the counter of selected classes -->
-	          		<%= fa_icon "shopping-basket" %> 0
-	          	<% end %>
-	          </li>
+
+	          <!-- Link to all students - just for convenience -->
+	          <li class="active"><%= link_to 'My students', students_path %></li>
 	        </ul>
 	        
 					<ul class="nav navbar-nav navbar-right">
