@@ -1,5 +1,8 @@
-<% p = Person.find(@studentContact.person_id) %>
-<h2>Contact person <%= p.name %> for <%= Person.find(@studentContact.student_id).name %></h2>
+<!-- Find proper instances in Person table -->
+<% person = Person.find(@studentContact.person_id) %>
+<% student = Person.find(Student.find(@studentContact.student_id).person_id) %>
+
+<h2>Details about contact person <%= person.first_name %> <%= person.last_name %> for <%= student.first_name %> <%= student.last_name %></h2>
 
 <table class="table">
 	<thead>
@@ -7,27 +10,27 @@
 	<tbody>
 		<tr>
 			<th>First name: </th>
-			<td><%= p.first_name %></td>
+			<td><%= person.first_name %></td>
 		</tr>
 		<tr>
 			<th>Last name: </th>
-			<td><%= p.last_name %></td>
+			<td><%= person.last_name %></td>
 		</tr>
 		<tr>
 			<th>Cell phone: </th>
-			<td><%= p.cell_phone %></td>
+			<td><%= person.cell_phone %></td>
 		</tr>
 		<tr>
 			<th>Home phone: </th>
-			<td><%= p.home_phone %></td>
+			<td><%= person.home_phone %></td>
 		</tr>
 		<tr>
 			<th>Work phone: </th>
-			<td><%= p.work_phone %></td>
+			<td><%= person.work_phone %></td>
 		</tr>
 		<tr>
 			<th>Email: </th>
-			<td><%= p.email %></td>
+			<td><%= person.email %></td>
 		</tr>
 		<tr>
 			<th>Relationship: </th>

@@ -19,7 +19,6 @@ class StudentContactsController < ApplicationController
 	def create
 		@studentContact = StudentContact.new(sc_params)
 		if commit == 'Save' && @studentContact.valid?
-			require 'pry'; binding.pry
 			@studentContact.save
 			redirect_to student_contacts_path(student_id: @studentContact.student_id)
 		elsif commit == 'Cancel'
@@ -35,9 +34,11 @@ class StudentContactsController < ApplicationController
 
 	def update
 		@studentContact = StudentContact.find(params[:id])
-		require 'pry'; binding.pry
 		if commit == 'Save' && @studentContact.valid?
-			@studentContact.update(sc_params)
+			#puts "SC_PARAMS update", sc_params
+			@studentContact.update(relationship_to_student: sc_params[:relationship_to_student])
+			person = Person.find(@studentContact.person_id)
+			person.update(sc_params[:person_attributes])
 			redirect_to student_contacts_path(student_id: @studentContact.student_id)
 		elsif commit == 'Cancel'
 			redirect_to student_contacts_path(student_id: @studentContact.student_id)
