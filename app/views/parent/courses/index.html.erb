@@ -1,0 +1,32 @@
+<h1>Courses for <%= current_student.name %> </h1>
+
+<table id="courses" class="table table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Course Name</th>
+      <th>Location</th>
+      <th>Instructor</th>
+      <th>Fees</th>
+      <th>Course Dates</th>
+      <th>Course Times</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @courses.each do |course| %>
+        <tr>
+          <td><% button_tag type: :submit, id: 'add_to_cart_button' %> </td>
+          <td><%= course.name %></td>
+          <td><%= course.location %></td>
+          <td><%= course.instructor_name %></td>
+          <td><%= humanize_money_from_cents(course.fees_in_cents) %></td>
+          <td><%= humanize_course_dates(course) %></td>
+          <td><%= humanize_course_times(course) %></td>
+          <td>
+            <%= link_to 'Add Course', add_basket_item_path(course), :class => 'btn btn-mini' %>
+          </td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>

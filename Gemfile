@@ -28,8 +28,10 @@ gem 'money-rails'
 gem 'twitter-bootstrap-rails'
 gem 'devise-bootstrap-views'
 gem "font-awesome-rails"
+<<<<<<< 962a40336ad0373eedd51b7597fb6eb6a7dd4fc0
 gem 'hirb'
 gem 'bootstrap_form'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

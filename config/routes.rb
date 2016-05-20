@@ -14,7 +14,11 @@ Rails.application.routes.draw do
   resources :student_contacts
   # You can have the root of your site routed with "root"
   #TODO change this
-  root 'home#index'
+  root to: 'parent/courses#index'
+
+  scope module: :parent do
+    resource :courses, only: [:index]
+  end
 
   get 'home/registration_confirmation'
 

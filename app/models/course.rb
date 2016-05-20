@@ -10,6 +10,12 @@ class Course < ActiveRecord::Base
   has_many :registrations
   has_many :students, through: :registrations
 
+  scope :active, -> { where("? BETWEEN registration_start AND registration_end", Date.today)}
+
+  scope :within_age_group, ->(age) {
+    where("? BETWEEN lowest_age AND highest_age", age)
+  }
+
   def Course.for_student(student)
     where("? BETWEEN registration_start AND registration_end AND lowest_age < ? AND highest_age > ?", Time.now, student.age, student.age)
   end
