@@ -24,9 +24,14 @@
           <td><%= humanize_course_dates(course) %></td>
           <td><%= humanize_course_times(course) %></td>
           <td>
-            <%= link_to 'Add Course', add_basket_item_path(course), :class => 'btn btn-mini' %>
+            <% if course.can_be_added?(current_student.id) && !shopping_basket.includes_course?(course.id)%>
+              <%= link_to 'Add Course', add_basket_item_path(course), :class => 'btn btn-mini', method: :post %>
+            <% else %>
+              <%= link_to 'Remove Course', remove_basket_item_path(course), :class => 'btn btn-mini', method: :post %>
+            <% end %>
           </td>
         </tr>
     <% end %>
+
   </tbody>
 </table>

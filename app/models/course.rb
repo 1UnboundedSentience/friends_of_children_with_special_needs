@@ -7,8 +7,8 @@ class Course < ActiveRecord::Base
   has_many :course_dates
   has_many :course_times
 
-  has_many :registrations
-  has_many :students, through: :registrations
+  has_many :registration_items
+  has_many :students, through: :registration_items
 
   scope :active, -> { where("? BETWEEN registration_start AND registration_end", Date.today)}
 
@@ -26,6 +26,10 @@ class Course < ActiveRecord::Base
 
   def coordinator_name
   	coordinator.person.display_name
+  end
+
+  def can_be_added?(student_id)
+    students.map(&:id).exclude?(student_id)
   end
 end
 

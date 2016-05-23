@@ -6,4 +6,5 @@ class Registration < ActiveRecord::Base
       waitlist: 'waitlist',
       approved: 'approved'
   }
+  has_many :registration_items
 end

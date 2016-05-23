@@ -1,8 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 valid_registration:
-  course: active
-  student: valid_student
   signature_svg: long svg value
   photo_waiver: true
   status: Registration::STATUS[:approved]

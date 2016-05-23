@@ -1,0 +1,6 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+valid_registration_item:
+  course: active
+  student: valid_student
+  registration: valid_registration

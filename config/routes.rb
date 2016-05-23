@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   scope module: :parent do
     resource :courses, only: [:index]
+    resource :basket, only: [:show]
+    resource :registration, only: [:new, :create, :show]
   end
 
   get 'home/registration_confirmation'
@@ -29,6 +31,8 @@ Rails.application.routes.draw do
   resources :student_contacts
   resources :people
 
+  post 'add_basket_item/:course_id', to: 'parent/courses#add_basket_item', as: :add_basket_item
+  post 'remove_basket_item/:course_id', to: 'parent/courses#remove_basket_item', as: :remove_basket_item
   #   get 'products/:id' => 'catalog#view'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
