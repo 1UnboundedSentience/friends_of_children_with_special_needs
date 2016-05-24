@@ -175,7 +175,8 @@
     <%= link_to "Parent_Info", person_path(current_user), class: "button btn-sm btn-info" %>
   </div> 
   <div class="col-sm-1">
-    <%= link_to "Contacts", student_contacts_path, class: "button btn-sm btn-info" %>
+    <%= link_to "Contacts", student_contacts_path(:student_id => @student.id), 
+        class: "button btn-sm btn-info" %>
   </div>
   <div class="col-sm-1">
     <%= link_to "Add_Student", new_student_path, class: "button btn-sm btn-info" %>
@@ -184,6 +185,6 @@
     <%= link_to "All_Students", students_path, class: "button btn-sm btn-info" %> 
   </div>
   <div class="col-sm-1">
-    <%= link_to "Add Contact", new_student_contact_path, class: "button btn-sm btn-info" %>
+    <%= link_to "Add_Contact", new_student_contact_path, class: "button btn-sm btn-info" %>
   </div>  
 </div>

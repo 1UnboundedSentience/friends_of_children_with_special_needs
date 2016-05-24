@@ -62,7 +62,7 @@
     <%= link_to "Parent_Info", person_path(current_user), class: "button btn-sm btn-info" %>
   </div> 
   <div class="col-sm-1">
-    <%= link_to "Contacts", student_contacts_path, class: "button btn-sm btn-info" %>
+    <%= link_to "Contacts", student_contacts_path, :student_id => @student.id, class: "button btn-sm btn-info" %>
   </div>
   <div class="col-sm-1">
     <%= link_to "Edit_Student", edit_student_path(@student), class: "button btn-sm btn-info" %>
