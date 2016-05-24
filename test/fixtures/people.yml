@@ -68,3 +68,11 @@ mother:
   last_name: Jones
   first_name: Mother
   name: Mother Jones
+
+student_contact_person_1:
+  first_name: FN
+  last_name: LN
+  cell_phone: 123-456-7890
+  home_phone: 123-456-7890
+  work_phone: 123-456-7890
+  email: fnln@email.com

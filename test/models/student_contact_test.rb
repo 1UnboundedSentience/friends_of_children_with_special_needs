@@ -26,4 +26,12 @@ class StudentContactTest < ActiveSupport::TestCase
     assert_equal students(:valid_student), father.student
     assert_equal people(:user_person), father.person
   end
+
+  test "added student contact" do
+    added_contact = student_contacts(:student_contact_1)
+    assert added_contact.valid?
+
+    assert_equal students(:valid_student), added_contact.student
+    assert_equal people(:student_contact_person_1), added_contact.person
+  end
 end

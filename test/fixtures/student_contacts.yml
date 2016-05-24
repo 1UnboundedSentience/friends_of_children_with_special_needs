@@ -16,7 +16,6 @@ father:
   student: valid_student
   relationship_to_student: StudentContact.father_role
 
-
 mother_younger_child:
   person: mother
   student: younger_child
@@ -27,3 +26,7 @@ mother_older_child:
   student: older_child
   relationship_to_student: StudentContact.mother_role
 
+student_contact_1:
+  person: student_contact_person_1
+  student: valid_student
+  relationship_to_student: test_relationship
