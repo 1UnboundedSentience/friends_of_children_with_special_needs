@@ -1,9 +1,9 @@
 <h1> Confirm Class Selections for <%= current_student.name %> </h1>
 
+<h2> Selected Courses </h2>
 <table id="courses" class="table table-striped">
   <thead>
   <tr>
-    <th></th>
     <th>Course Name</th>
     <th>Location</th>
     <th>Instructor</th>
@@ -15,7 +15,6 @@
   <tbody>
   <% @courses.each do |course| %>
       <tr>
-        <td><% button_tag type: :submit, id: 'add_to_cart_button' %> </td>
         <td><%= course.name %></td>
         <td><%= course.location %></td>
         <td><%= course.instructor_name %></td>
@@ -24,11 +23,13 @@
         <td><%= humanize_course_times(course) %></td>
       </tr>
   <% end %>
-
-  <%= form_for(@registration) do |f| %>
-      <%= f.text_area :description, :size => "200x10" %>
-      <p><%= f.submit "Reply!" %></p>
-  <% end %>
-
   </tbody>
 </table>
+
+<p>
+  <%= form_for @registration, as: :post, url: registration_path(@registration) do |f| %>
+    <p> <%= f.check_box :photo_waiver, :size => "200x10" %> <%= f.label :photo_waiver %> </p>
+    <p>Signature <%= f.text_field :signature_svg, :size => "40" %></p>
+    <%= f.button "Done",  class: 'btn btn-primary active' %>
+<% end %>
+</p>
