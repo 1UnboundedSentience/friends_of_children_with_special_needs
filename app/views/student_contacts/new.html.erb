@@ -1,4 +1,7 @@
-<h2>Emergency Contact Page</h2>
-<h3>Please, enter the information about the emergency contacts here</h3>
+<!-- Find proper instance in Person table -->
+<% student = Person.find(Student.find(@studentContact.student_id).person_id) %>
+
+<h2>Adding new emergency contact for <%= student.first_name%> <%= student.last_name%></h2>
+<h3>Please, enter the information about the emergency contact below: </h3>
 
 <%= render "form_sc" %>

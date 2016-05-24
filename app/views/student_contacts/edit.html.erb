@@ -1,3 +1,7 @@
-<h2>Edit emergency contact here</h2>
+<!-- Find proper instance in Person table -->
+<% student = Person.find(Student.find(@studentContact.student_id).person_id) %>
+
+<h2>Editing emergency contact for <%= student.first_name%> <%= student.last_name%></h2>
+<h3>Please, edit desired information about the emergency below: </h3>
 
 <%= render "form_sc" %>
