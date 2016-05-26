@@ -47,6 +47,20 @@
   CourseDate.create_with(course: course).find_or_create_by(date: "2014-02-29")
   CourseTime.create_with( course: course).find_or_create_by(military_time: "15:30")
 
+  Course.create_with(
+      description: 'Best Chinese class!!!',
+      location: 'My Other House',
+      registration_start: '2015-05-10 12:53:24',
+      registration_end: '2025-03-10 12:53:24',
+      instructor: instructor,
+      coordinator: coordinator,
+      fees_in_cents: 3000,
+      comments: "Please bring art supplies",
+      lowest_age: 1,
+      highest_age: 16).find_or_create_by(name: 'Chinese class for seed')
+  CourseDate.create_with(course: course).find_or_create_by(date: "2014-03-29")
+  CourseTime.create_with( course: course).find_or_create_by(military_time: "16:30")
+
 
   student = Student.create_with(person: student_person,
                         allergies: "Nuts and mean people",

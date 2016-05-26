@@ -13,13 +13,13 @@ module Parent
     def add_basket_item
       shopping_basket.add_item_to_basket(params[:course_id])
       store_basket_in_session
-      redirect_to root_path
+      redirect_to course_selection_path
     end
 
     def remove_basket_item
       #TODO - if registration has been created and in waitlist mode, remove from registration?
       shopping_basket.remove_item_from_basket(params[:course_id])
-      redirect_to root_path
+      redirect_to course_selection_path
     end
   end
 end

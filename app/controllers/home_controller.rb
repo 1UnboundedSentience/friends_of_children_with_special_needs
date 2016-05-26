@@ -11,6 +11,8 @@ class HomeController < ApplicationController
   end
 
   def index
-    @registrations = Registration.all
+    #TODO - should only be of the parent
+    @registration = Registration.first
+    @registration_items = RegistrationItem.all
   end
 end

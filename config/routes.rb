@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
 
-  resources :registrations, only: %i(index)
-  resources :students, only: [] do
-    resources :registrations, only: %i(destroy), shallow: true
-    resources :courses, only: [] do
-      resources :registrations, only: %i(create), shallow: true
-    end
-  end
+  # resources :registrations, only: %i(index)
+  # resources :students, only: [] do
+  #   resources :registrations, only: %i(destroy), shallow: true
+  #   resources :courses, only: [] do
+  #     resources :registrations, only: %i(create), shallow: true
+  #   end
+  # end
 
   devise_for :users, controllers: { registrations: "users/registrations" }
   # The priority is based upon order of creation: first created -> highest priority.
@@ -14,10 +14,9 @@ Rails.application.routes.draw do
   resources :student_contacts
   # You can have the root of your site routed with "root"
   #TODO change this
-  root to: 'parent/courses#index'
+  root 'home#index'
 
   scope module: :parent do
-    resource :courses, only: [:index]
     resource :basket, only: [:show]
     resource :registration, only: [:new, :create, :show]
   end
@@ -25,12 +24,12 @@ Rails.application.routes.draw do
   get 'home/registration_confirmation'
 
   resources :home
-
-
   resources :students
   resources :student_contacts
   resources :people
 
+  get 'parent/courses/confirmation', to: 'parent/courses#index', as: :course_confirmation
+  get 'parent/courses', to:'parent/courses#index', as: :course_selection
   post 'add_basket_item/:course_id', to: 'parent/courses#add_basket_item', as: :add_basket_item
   post 'remove_basket_item/:course_id', to: 'parent/courses#remove_basket_item', as: :remove_basket_item
   #   get 'products/:id' => 'catalog#view'

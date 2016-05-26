@@ -1,8 +1,8 @@
 class RegistrationsController < ApplicationController
-  def index
-    @parent = Parent.new(current_person)
-    @students = @parent.students
-  end
+  # def index
+  #   @parent = Parent.new(current_person)
+  #   @students = @parent.students
+  # end
 
   def create
     student = Student.find(params[:student_id])

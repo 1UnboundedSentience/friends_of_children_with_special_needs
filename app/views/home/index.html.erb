@@ -1,5 +1,5 @@
 <h1>Class selections</h1>
-<table class="table">
+<table class="table table-striped">
   <thead>
     <th>Child name</th>
     <th>Class name</th>
@@ -7,12 +7,14 @@
     <th>Status</th>
   </thead>
   <tbody>
-    <% for registration in @registrations %>
-      <td><%=registration.student.person.display_name%></td>
-      <td><a href="/home/<%=registration.course.id%>"><%=registration.course.name%></a>
-      </td>
-      <td><%=registration.photo_waiver%></td>
-      <td><%=registration.status%></td>
+    <% for registration_item in @registration_items %>
+      <tr>
+        <td><%=registration_item.student.person.display_name%></td>
+        <td><a href="/home/<%=registration_item.course.id%>"><%=registration_item.course.name%></a>
+        </td>
+        <td><%= @registration.photo_waiver %></td>
+        <td><%= @registration.status %></td>
+      </tr>
     <%end%>
   </tbody>
 </table>
