@@ -65,6 +65,7 @@
   student = Student.create_with(person: student_person,
                         allergies: "Nuts and mean people",
                         birthday: "2006-05-03",
+                        login_parent: parent.id,
                         gender: 'female',
                         talents: "Loves to sing and swim",
                         comment: "Gets agitated when there are mean people in the room",

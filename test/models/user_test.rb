@@ -6,7 +6,12 @@ class UserTest < ActiveSupport::TestCase
     test "test valid #{role}" do
       user = users(role)
       assert user.valid?
-      assert people(:user_person), user.person
+      assert_equal people(:user_person), user.person
     end
   end
-end
+
+  test 'parent-student association' do
+    user = users(:parent)
+    assert user.students.size > 0
+  end
+ end

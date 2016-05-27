@@ -10,6 +10,7 @@ valid_student:
   comment: Gets agitated when there are mean people in the room
   behavior_intervention_plan: false
   one_on_one_aide: true
+  parent: parent
 
 younger_child:
   person: younger_child
@@ -21,6 +22,7 @@ younger_child:
   comment: Gets agitated when there are mean people in the room
   behavior_intervention_plan: false
   one_on_one_aide: true
+  parent: parent
 
 older_child:
   person: older_child
@@ -32,3 +34,4 @@ older_child:
   comment: Gets agitated when there are mean people in the room
   behavior_intervention_plan: false
   one_on_one_aide: true
+  parent: parent

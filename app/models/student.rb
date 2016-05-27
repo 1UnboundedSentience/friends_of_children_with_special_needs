@@ -7,6 +7,9 @@ class Student < ActiveRecord::Base
   has_many :registrations
   has_many :courses, through: :registrations
 
+  #Assuming that login is shared between parents
+  belongs_to :parent, class_name: 'User', foreign_key: 'user_id'
+
   accepts_nested_attributes_for :person,
     :allow_destroy => true,
     :reject_if     => :all_blank

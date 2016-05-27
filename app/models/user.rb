@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 
   belongs_to :person
 
+  has_many :students
+
   accepts_nested_attributes_for :person
   def students
     if (is_parent)

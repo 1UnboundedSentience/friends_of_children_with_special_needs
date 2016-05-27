@@ -4,6 +4,7 @@ class StudentTest < ActiveSupport::TestCase
   test "valid student" do
     student = students(:valid_student)
     assert student.valid?
-    assert people(:student_person), student.person
+    assert_equal people(:student_person), student.person
+    assert_equal users(:parent), student.parent
   end
 end
