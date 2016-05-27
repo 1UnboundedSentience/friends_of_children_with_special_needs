@@ -9,14 +9,4 @@ class User < ActiveRecord::Base
   has_many :students
 
   accepts_nested_attributes_for :person
-  def students
-    if (is_parent)
-        contacts = StudentContact.where(person_id: person.id,
-                                        relationship_to_student: ["StudentContact.mother_role",
-                                                                  "StudentContact.father_role",
-                                                                  "Mother",
-                                                                  "Father"])
-        contacts.map(&:student)
-    end
-  end
 end

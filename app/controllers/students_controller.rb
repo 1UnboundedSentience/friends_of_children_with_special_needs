@@ -31,6 +31,7 @@ class StudentsController < ApplicationController
     @student.person = @person
 
     if @student.save
+      #TODO - update the handling of this
       @student_contact = StudentContact.create(student_id: @student.id, person_id: current_user.person.id, 
       	                 relationship_to_student: "Parent")
 
