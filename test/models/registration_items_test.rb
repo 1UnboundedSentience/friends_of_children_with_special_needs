@@ -6,6 +6,5 @@ class RegistrationItemsTest < ActiveSupport::TestCase
     assert registration_item.valid?
     assert_equal registrations(:valid_registration), registration_item.registration
     assert_equal courses(:active), registration_item.course
-    assert_equal students(:valid_student), registration_item.student
   end
 end

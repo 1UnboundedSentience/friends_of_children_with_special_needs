@@ -2,5 +2,4 @@
 
 valid_registration_item:
   course: active
-  student: valid_student
   registration: valid_registration
