@@ -21,9 +21,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     	             cell_phone:  person["cell_phone"],
     	             email: params["user"]["email"]
     	             })
-    user_id = @p.id
     user = User.find_by(email: params["user"]["email"])
-    user.update!(person_id: user_id)
+    user.update!(person_id: @p.id)
 
   end
   def after_sign_up_path_for(resource)

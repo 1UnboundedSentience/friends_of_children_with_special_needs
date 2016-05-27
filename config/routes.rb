@@ -9,11 +9,11 @@ Rails.application.routes.draw do
   # end
 
   devise_for :users, controllers: { registrations: "users/registrations" }
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   resources :student_contacts
   # You can have the root of your site routed with "root"
-  #TODO change this
   root 'home#index'
 
   scope module: :parent do
@@ -28,7 +28,6 @@ Rails.application.routes.draw do
   resources :student_contacts
   resources :people
 
-  get 'parent/courses/confirmation', to: 'parent/courses#index', as: :course_confirmation
   get 'parent/courses', to:'parent/courses#index', as: :course_selection
   post 'add_basket_item/:course_id', to: 'parent/courses#add_basket_item', as: :add_basket_item
   post 'remove_basket_item/:course_id', to: 'parent/courses#remove_basket_item', as: :remove_basket_item

@@ -6,8 +6,4 @@ class ShoppingBasketItem < ActiveRecord::Base
   def fees
     course.fees_in_cents
   end
-
-  def persisted?
-    false
-  end
 end
