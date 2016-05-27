@@ -3,17 +3,12 @@ require_dependency 'application_controller'
 module Parent
   class ApplicationController < ::ApplicationController
 
-    helper_method :current_student, :current_parent
+    helper_method :current_student
 
     include ApplicationHelper
 
-    def current_parent
-      #TODO
-      @parent ||= User.where(is_parent: true).first
-    end
-
     def current_student
-      current_parent.students.first
+      current_user.students.first
     end
 
     private
