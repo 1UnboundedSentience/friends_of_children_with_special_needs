@@ -8,7 +8,8 @@ class Course < ActiveRecord::Base
   has_many :course_times
 
   has_many :registration_items
-  has_many :students, through: :registration_items
+  has_many :registrations, through: :registration_items
+  has_many :students, through: :registrations
 
   scope :active, -> { where("? BETWEEN registration_start AND registration_end", Date.today)}
 

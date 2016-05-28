@@ -3,8 +3,8 @@ class StudentContactsController < ApplicationController
 	# TODO - WRITE TESTS FOR THIS MODEL !!!
 
 	def index
-		@student = Student.find(params[:student_id])
-		@studentContacts = StudentContact.where(:student_id => @student.id)
+		@student = current_user.students.first
+		@studentContacts = @student.student_contacts
 	end
 
 	def new

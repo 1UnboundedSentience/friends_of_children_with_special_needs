@@ -62,10 +62,22 @@
   CourseTime.create_with( course: course).find_or_create_by(military_time: "16:30")
 
 
+  Course.create(name: "Math class for seed",
+                description: "Best Math class eva!!!",
+                location: "My Math House",
+                registration_start: "2015-05-10 12:53:24",
+                registration_end: "2025-03-10 12:53:24",
+                instructor: instructor,
+                coordinator: coordinator,
+                fees_in_cents: 3000,
+                comments: "Bring your calculator",
+                lowest_age: 1,
+                highest_age: 16)
+
   student = Student.create_with(person: student_person,
                         allergies: "Nuts and mean people",
                         birthday: "2006-05-03",
-                        login_parent: parent.id,
+                        parent: parent,
                         gender: 'female',
                         talents: "Loves to sing and swim",
                         comment: "Gets agitated when there are mean people in the room",
@@ -75,5 +87,6 @@
   StudentContact.create_with(student: student).find_or_create_by(person: emergency_contact_person, relationship_to_student: StudentContact.emergency_contact_role)
   StudentContact.create_with(student: student).find_or_create_by(person: parent_person, relationship_to_student: StudentContact.mother_role)
 
-  registration = Registration.create_with(photo_waiver: true).find_or_create_by(signature_svg: "my signature for seed")
-  RegistrationItem.create(registration: registration, course: course, student: student)
+  registration = Registration.create_with(photo_waiver: true, status: Registration::STATUS[:waitlist],
+                                          signature_svg: "my signature for seed").find_or_create_by(student: student)
+  RegistrationItem.create(registration: registration, course: course)

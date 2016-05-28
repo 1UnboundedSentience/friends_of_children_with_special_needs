@@ -31,4 +31,12 @@ class CourseTest < ActiveSupport::TestCase
   test 'course_times is set' do
     assert_equal users(:coordinator), @course.coordinator
   end
+
+  test '#can_be_added' do
+    registration = registrations(:valid_registration)
+    registration_item = registration.registration_items.first
+    course = registration_item.course
+    student = registration.student
+    refute course.can_be_added?(student.id)
+  end
 end

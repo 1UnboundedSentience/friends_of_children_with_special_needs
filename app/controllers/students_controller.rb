@@ -4,7 +4,7 @@ class StudentsController < ApplicationController
   #before_action :require_current_user, :only => [:edit, :update, :destroy]
 
   def index
-   @students = current_user.person.student_relations
+   @students = current_user.students
   end
 
   def show
@@ -25,16 +25,15 @@ class StudentsController < ApplicationController
   end
 
   def create
+    #TODO modify this
+    #TODO:  handle addition of other parent
     @person = Person.new(first_name: params[:student][:person_attributes][:first_name],
     	                 last_name: params[:student][:person_attributes][:last_name])
     @student = Student.new(student_params)
     @student.person = @person
+    @student.parent = current_user
 
     if @student.save
-      #TODO - update the handling of this
-      @student_contact = StudentContact.create(student_id: @student.id, person_id: current_user.person.id, 
-      	                 relationship_to_student: "Parent")
-
       flash[:success] = "Student was added!"
       redirect_to new_student_path(@student)
     else

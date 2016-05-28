@@ -9,11 +9,11 @@
   <tbody>
     <% for registration_item in @registration_items %>
       <tr>
-        <td><%=registration_item.student.person.display_name%></td>
-        <td><a href="/home/<%=registration_item.course.id%>"><%=registration_item.course.name%></a>
+        <td><%= registration_item.registration.student_name %></td>
+        <td><a href="/home/<%=registration_item.course.id%>"><%=registration_item.course_name%></a>
         </td>
-        <td><%= @registration.photo_waiver %></td>
-        <td><%= @registration.status %></td>
+        <td><%= registration_item.photo_waiver %></td>
+        <td><%= registration_item.status %></td>
       </tr>
     <%end%>
   </tbody>

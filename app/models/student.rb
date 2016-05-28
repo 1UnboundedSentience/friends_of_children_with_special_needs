@@ -5,10 +5,11 @@ class Student < ActiveRecord::Base
   has_many :person_relations, through: :student_contacts, source: :person
 
   has_many :registrations
-  has_many :courses, through: :registrations
 
   #Assuming that login is shared between parents
   belongs_to :parent, class_name: 'User', foreign_key: 'user_id'
+
+  delegate :display_name, to: :person
 
   accepts_nested_attributes_for :person,
     :allow_destroy => true,
@@ -32,5 +33,9 @@ class Student < ActiveRecord::Base
     now.year - birthday.year -
         ((now.month > birthday.month ||
             (now.month == birthday.month && now.day >= birthday.day)) ? 0 : 1)
+  end
+
+  def registration_items
+    registrations.map(&:registration_items).flatten if registrations
   end
 end

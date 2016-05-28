@@ -7,4 +7,6 @@ class Registration < ActiveRecord::Base
       approved: 'approved'
   }
   has_many :registration_items
+
+  delegate :name, to: :student, prefix: 'student'
 end

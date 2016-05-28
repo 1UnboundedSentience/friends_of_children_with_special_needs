@@ -6,5 +6,9 @@ class RegistrationItemsTest < ActiveSupport::TestCase
     assert registration_item.valid?
     assert_equal registrations(:valid_registration), registration_item.registration
     assert_equal courses(:active), registration_item.course
+    assert registration_item.photo_waiver
+    assert registration_item.status
+    assert_equal "Art class", registration_item.course_name
+    assert_equal "Student Metz", registration_item.registration.student_name
   end
 end
