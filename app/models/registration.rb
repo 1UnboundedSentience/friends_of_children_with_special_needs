@@ -9,4 +9,6 @@ class Registration < ActiveRecord::Base
   has_many :registration_items
 
   delegate :name, to: :student, prefix: 'student'
+
+  validates :signature_svg, presence: true
 end
