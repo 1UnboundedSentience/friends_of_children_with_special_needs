@@ -22,14 +22,11 @@ module Parent
 
     private
 
-    #TODO - move this to model and write tests
     def build_registration
-      #TODO build from SB an fix this below
       registration = Registration.new(photo_waiver: params[:photo_waiver],
                                       signature_svg: params[:signature_svg],
                                       student_id: current_student.id)
       items = []
-      #TODO build from SBI
       shopping_basket.items.each {|sbi|
         items << (RegistrationItem.new(
                   course_id: sbi.course.id,
@@ -40,7 +37,7 @@ module Parent
     end
 
     def registration_params
-      #TODO: why are these not coming with registration?
+      #TODO: why are these not coming with registration? Fix this and modify build_registration
       params.permit(:photo_waiver, :signature_svg)
     end
   end

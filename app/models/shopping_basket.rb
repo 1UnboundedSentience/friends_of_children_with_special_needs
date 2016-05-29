@@ -14,7 +14,6 @@ class ShoppingBasket < ActiveRecord::Base
   end
 
   def add_item_to_basket(course_id)
-    #TODO - if the class has already been added - do not add.
     items << items.build({ course_id: course_id, shopping_basket: self})
   end
 

@@ -1,9 +1,8 @@
-<h1>Courses for <%= current_student.name %> </h1>
+<h1>Available Courses for <%= current_student.name %> </h1>
 
 <table id="courses" class="table table-striped">
   <thead>
     <tr>
-      <th></th>
       <th>Course Name</th>
       <th>Location</th>
       <th>Instructor</th>
@@ -14,9 +13,17 @@
     </tr>
   </thead>
   <tbody>
-    <% @courses.each do |course| %>
+
+    <% if @courses.empty? %>
         <tr>
-          <td><% button_tag type: :submit, id: 'add_to_cart_button' %> </td>
+          <td colspan="8" >
+            There are no courses available.
+          </td>
+        </tr>
+    <% else %>
+
+      <% @courses.each do |course| %>
+        <tr>
           <td><%= course.name %></td>
           <td><%= course.location %></td>
           <td><%= course.instructor_name %></td>
@@ -31,12 +38,13 @@
             <% end %>
           </td>
         </tr>
+      <% end %>
     <% end %>
-
   </tbody>
 </table>
 
-<!-- TODO - DO NOT ENABLE Next UNLESS THERE ARE NEW REGISTRATIONS -->
-<p>
-  <%= link_to "Next", new_registration_path, class: "btn btn-mini" %>
-</p>
+<% if @enable_next_button %>
+  <p>
+    <%= link_to "Next", new_registration_path, class: "btn btn-mini" %>
+  </p>
+<% end %>
