@@ -43,7 +43,7 @@
   </tbody>
 </table>
 
-<% if @enable_next_button %>
+<% if shopping_basket_has_courses? %>
   <p>
     <%= link_to "Next", new_registration_path, class: "btn btn-mini" %>
   </p>
