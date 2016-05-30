@@ -13,4 +13,8 @@ module BasketsHelper
   def store_basket_in_session
     session[FCSN_SHOPPING_BASKET_ID] = @shopping_basket.id
   end
+
+  def shopping_basket_has_courses?
+    shopping_basket.items && shopping_basket.items.count > 0
+  end
 end
