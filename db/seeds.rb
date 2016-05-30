@@ -87,6 +87,6 @@
   StudentContact.create_with(student: student).find_or_create_by(person: emergency_contact_person, relationship_to_student: StudentContact.emergency_contact_role)
   StudentContact.create_with(student: student).find_or_create_by(person: parent_person, relationship_to_student: StudentContact.mother_role)
 
-  registration = Registration.create_with(photo_waiver: true, status: Registration::STATUS[:waitlist],
+  registration = Registration.create_with(photo_waiver: true, status: Registration::STATUS[:enrolled],
                                           signature_svg: "my signature for seed").find_or_create_by(student: student)
   RegistrationItem.create(registration: registration, course: course)

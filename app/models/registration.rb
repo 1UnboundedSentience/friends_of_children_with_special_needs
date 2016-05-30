@@ -3,7 +3,7 @@ class Registration < ActiveRecord::Base
   belongs_to :student
 
   STATUS = {
-      waitlist: 'waitlist',
+      enrolled: 'enrolled',
       approved: 'approved'
   }
   has_many :registration_items
