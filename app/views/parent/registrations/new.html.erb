@@ -13,7 +13,7 @@
   </tr>
   </thead>
   <tbody>
-  <% @courses.each do |course| %>
+  <% shopping_basket.items.map(&:course).each do |course| %>
       <tr>
         <td><%= course.name %></td>
         <td><%= course.location %></td>
@@ -27,7 +27,7 @@
 </table>
 
 <p>
-  <%= form_for @registration, as: :post, url: registration_path(@registration) do |f| %>
+  <%= form_for @registration, url: registration_path(@registration) do |f| %>
     <p> <%= f.check_box :photo_waiver, :size => "200x10" %> <%= f.label :photo_waiver %> </p>
     <p>Signature <%= f.text_field :signature_svg, :size => "40" %></p>
     <%= f.button "Done",  class: 'btn btn-primary active' %>
