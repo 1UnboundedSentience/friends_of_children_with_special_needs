@@ -21,7 +21,9 @@ Rails.application.routes.draw do
     resource :registration, only: [:new, :create, :show]
   end
 
-  get 'home/registration_confirmation'
+  scope module: :admin do
+    resources :courses
+  end
 
   resources :home
   resources :students
