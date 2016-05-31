@@ -73,21 +73,22 @@
 
 /*Start of styles for Parent View - Select Classes - Show page for classes*/
 h1#courseTitle{
-   text-align: center;
+   text-align: left;
    margin: 5%;
-   font-family:  Zapf Chancery, cursive;
-   color:#E86F05;
+   font-family:  Zapf Chancery;
 
 }
 .courseName{
     
 }
-tr#courseInfo{
-    background:#F5C187; 
+td#course_header{
+    background:#F5C187;
     font-weight:bold;
+    text-align: right;
 }
-tr#courseInfo td{
+td#course_data{
   border-right:1px solid #e7e7e7;
+    valign: center;
 }
 /*End of styles for New Student Registration Page*/
 
