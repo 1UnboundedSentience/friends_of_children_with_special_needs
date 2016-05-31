@@ -33,6 +33,16 @@
   parent      = User.create_with(is_parent: true, password: 'testing123', person: parent_person)
                     .find_or_create_by(email: parent_person[:email])
 
+  active_term = Term.create_with(
+                      description: "Classes offered during Summer starting in June and ending in September",
+                      start_date: '2016-06-03',
+                      end_date: '2016-09-30').find_or_create_by(name: 'Summer Term')
+  Term.create_with(
+      name: 'Summer Term 2015',
+      description: "Classes offered during Summer 2015 starting in June and ending in September",
+      start_date: 1.month.ago,
+      end_date: 1.month.from_now)
+
   course  = Course.create_with(
                   description: 'Best art class eva!!!',
                   location: 'My House',
@@ -43,7 +53,8 @@
                   fees_in_cents: 1000,
                   comments: "Please bring your cameras with you. You will want a picture of the artwork",
                   lowest_age: 1,
-                  highest_age: 16).find_or_create_by(name: 'Art class for seed')
+                  highest_age: 16,
+                  term: active_term).find_or_create_by(name: 'Art class for seed')
   CourseDate.create_with(course: course).find_or_create_by(date: "2014-02-29")
   CourseTime.create_with( course: course).find_or_create_by(military_time: "15:30")
 
@@ -57,7 +68,8 @@
       fees_in_cents: 3000,
       comments: "Please bring art supplies",
       lowest_age: 1,
-      highest_age: 16).find_or_create_by(name: 'Chinese class for seed')
+      highest_age: 16,
+      term: active_term).find_or_create_by(name: 'Chinese class for seed')
   CourseDate.create_with(course: course).find_or_create_by(date: "2014-03-29")
   CourseTime.create_with( course: course).find_or_create_by(military_time: "16:30")
 
@@ -72,7 +84,8 @@
                 fees_in_cents: 3000,
                 comments: "Bring your calculator",
                 lowest_age: 1,
-                highest_age: 16)
+                highest_age: 16,
+                term: active_term)
 
   student = Student.create_with(person: student_person,
                         allergies: "Nuts and mean people",
@@ -87,6 +100,8 @@
   StudentContact.create_with(student: student).find_or_create_by(person: emergency_contact_person, relationship_to_student: StudentContact.emergency_contact_role)
   StudentContact.create_with(student: student).find_or_create_by(person: parent_person, relationship_to_student: StudentContact.mother_role)
 
-  registration = Registration.create_with(photo_waiver: true, status: Registration::STATUS[:enrolled],
+  registration = Registration.create_with(photo_waiver: true,
+                                          term: active_term,
+                                          status: Registration::STATUS[:enrolled],
                                           signature_svg: "my signature for seed").find_or_create_by(student: student)
   RegistrationItem.create(registration: registration, course: course)

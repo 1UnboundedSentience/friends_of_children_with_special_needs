@@ -12,6 +12,7 @@ active:
   comments: Please bring your cameras with you. You will want a picture of the White House
   lowest_age: 1
   highest_age: 100
+  term: active_term
 
 expired:
   name: Expired art class
@@ -25,3 +26,4 @@ expired:
   comments: You can no longer register for this class
   lowest_age: 1
   highest_age: 100
+  term: past_term

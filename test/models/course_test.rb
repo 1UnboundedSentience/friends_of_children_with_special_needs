@@ -32,6 +32,10 @@ class CourseTest < ActiveSupport::TestCase
     assert_equal users(:coordinator), @course.coordinator
   end
 
+  test 'term is set' do
+    assert_equal terms(:active_term), @course.term
+  end
+
   test '#can_be_added' do
     registration = registrations(:valid_registration)
     registration_item = registration.registration_items.first

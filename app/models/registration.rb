@@ -1,13 +1,12 @@
 class Registration < ActiveRecord::Base
-  belongs_to :course
-  belongs_to :student
 
+  belongs_to :student
+  has_many :registration_items
   STATUS = {
       enrolled: 'enrolled',
-      approved: 'approved'
+      approved: 'approved',
+      completed: 'completed'
   }
-  has_many :registration_items
-
   delegate :name, to: :student, prefix: 'student'
 
   validates :signature_svg, presence: true
