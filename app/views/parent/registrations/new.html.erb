@@ -15,7 +15,7 @@
   <tbody>
   <% shopping_basket.items.map(&:course).each do |course| %>
       <tr>
-        <td><%= course.name %></td>
+        <td><%= link_to course.name, course_path(course.id) %> </td>
         <td><%= course.location %></td>
         <td><%= course.instructor_name %></td>
         <td><%= humanize_money_from_cents(course.fees_in_cents) %></td>
