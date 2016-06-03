@@ -22,7 +22,8 @@ Rails.application.routes.draw do
   end
 
   scope module: :admin do
-    resources :courses
+    resource :courses, only: [:show]
+    resources :approvals, only: [:index]
   end
 
   resources :home

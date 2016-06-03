@@ -1,0 +1,45 @@
+
+<h2> Enter a course to see registered students </h2>
+<%= form_for :approvals, method: 'get', url: approvals_path, html: {:class => 'form-inline'} do |f| %>
+    Course ID <%= f.text_field :course_id, :size => "40" %>
+    <%= f.button 'Search' %>
+<% end %>
+
+<% if @course %>
+  <h3>Registered Students for '<%= link_to @course.name, courses_path(@course.id) %>' for '<%= @course.term.name %>' </h3>
+
+  <table id="courses" class="table table-striped">
+    <thead>
+    <tr>
+      <th>Student </th>
+      <th>Parent</th>
+      <th>Status</th>
+      <th>Previously Registered</th>
+      <th>Registration Date</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <% if @registration_items.empty? %>
+      <tr>
+        <td colspan="8" >
+          There are no students registered for the course.
+        </td>
+      </tr>
+    <% else %>
+      <% @registration_items.each do |registration_item| %>
+        <tr>
+          <% student = registration_item.registration.student %>
+          <td><%= link_to student.display_name, student_path(student.id) %></td>
+          <td><%= student.parent_name %></td>
+          <td><%= registration_item.status %></td>
+          <td>No for Now</td>
+          <td><%= registration_item.created_at %></td>
+        </tr>
+      <% end %>
+    <% end %>
+    </tbody>
+  </table>
+<% else %>
+    <h4>There were no courses found </h4>
+<% end %>

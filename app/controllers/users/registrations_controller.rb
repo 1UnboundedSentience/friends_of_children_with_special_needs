@@ -8,6 +8,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
  
   def create
     super
+    #TODO - look at this issue
     person=params["user"]["people"]
     @p = Person.create!({first_name: person["first_name"], 
     	             last_name: person["last_name"],

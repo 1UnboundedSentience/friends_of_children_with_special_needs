@@ -7,7 +7,7 @@ class Registration < ActiveRecord::Base
       approved: 'approved',
       completed: 'completed'
   }
-  delegate :name, to: :student, prefix: 'student'
+  delegate :display_name, to: :student, prefix: 'student'
 
   validates :signature_svg, presence: true
 end

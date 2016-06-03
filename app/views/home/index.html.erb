@@ -9,8 +9,8 @@
   <tbody>
     <% for registration_item in @registration_items %>
       <tr>
-        <td><%= registration_item.registration.student_name %></td>
-        <td><%= link_to registration_item.course_name, course_path(registration_item.course.id) %></td>
+        <td><%= registration_item.registration.student_display_name %></td>
+        <td><%= link_to registration_item.course_name, courses_path(registration_item.course.id) %></td>
         <td><%= registration_item.photo_waiver %></td>
         <td><%= registration_item.status %></td>
       </tr>

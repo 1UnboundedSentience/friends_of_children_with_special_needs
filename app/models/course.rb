@@ -12,14 +12,11 @@ class Course < ActiveRecord::Base
   has_many :students, through: :registrations
 
   scope :active, -> { where("? BETWEEN registration_start AND registration_end", Date.today)}
-
   scope :within_age_group, ->(age) {
     where("? BETWEEN lowest_age AND highest_age", age)
   }
-
-  scope :by_coordinator_and_session, ->(coordinator_id, session_id) {
-    where("coordinator_id = ? and session_id = ?", coordinator_id, session_id )
-  }
+  scope :by_coordinator, ->(coordinator_id) { where("coordinator_id = ?", coordinator_id) }
+  scope :by_term, ->(term_id) { where("term_id = ?", term_id) }
 
   def Course.for_student(student)
     where("? BETWEEN registration_start AND registration_end AND lowest_age < ? AND highest_age > ?", Time.now, student.age, student.age)

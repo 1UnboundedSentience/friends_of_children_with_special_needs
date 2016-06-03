@@ -1,4 +1,4 @@
-<h1>Available Courses for <%= current_student.name %> </h1>
+<h1>Available Courses for <%= current_student.display_name %> </h1>
 
 <table id="courses" class="table table-striped">
   <thead>
@@ -24,7 +24,7 @@
 
       <% @courses.each do |course| %>
         <tr>
-          <td><%= link_to course.name, course_path(course.id) %></td>
+          <td><%= link_to course.name, courses_path(course.id) %></td>
           <td><%= course.location %></td>
           <td><%= course.instructor_name %></td>
           <td><%= humanize_money_from_cents(course.fees_in_cents) %></td>
