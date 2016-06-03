@@ -4,6 +4,7 @@ module Admin
     def index
       @course =  Course.where(id: params[:course_id]).first
       if @course
+        #TODO Do not show registration items if they are in completed status
         @registration_items = RegistrationItem.by_course(@course.id)
       else
         #TODO - current_user needs to be set once auth is added. Remove the temp item below

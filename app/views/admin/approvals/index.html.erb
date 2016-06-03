@@ -7,7 +7,7 @@
 
   <% if @course %>
     <%= hidden_field_tag :course_id, @course.id %>
-    <h3>Registered Students for '<%= link_to @course.name, courses_path(@course.id) %>' for '<%= @course.term.name %>' </h3>
+    <h3>Registered Students for '<%= link_to @course.name, course_path(@course.id) %>' for '<%= @course.term.name %>' </h3>
   <% else %><p></p>
       <p style="color: green">  Displaying all courses for instructor.. </p>
   <% end %>

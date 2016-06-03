@@ -3,7 +3,6 @@ class StudentsController < ApplicationController
   #before_action :require_login, :except => [:new, :create]
   #before_action :require_current_user, :only => [:edit, :update, :destroy]
 #TODO - do not allow student contacts to be added before adding stuidents
-  #TODO - students are not shown on the right when students are entered
   def index
    @students = current_user.students
   end
