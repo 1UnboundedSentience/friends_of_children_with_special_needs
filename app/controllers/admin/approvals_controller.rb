@@ -6,6 +6,8 @@ module Admin
       if @course
         @registration_items = RegistrationItem.by_course(@course.id)
       else
+        #TODO - current_user needs to be set once auth is added. Remove the temp item below
+        current_user = User.where(is_coordinator: true).first
         @registration_items = Course.by_coordinator(current_user).map(&:registration_items).flatten
       end
     end
