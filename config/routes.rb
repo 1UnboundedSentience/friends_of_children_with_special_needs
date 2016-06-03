@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   resources :people
 
   get 'parent/courses', to:'parent/courses#index', as: :course_selection
+  post 'approvals/:registration_item_id/update_status', to:'admin/approvals#update_status', as: :update_status
   post 'add_basket_item/:course_id', to: 'parent/courses#add_basket_item', as: :add_basket_item
   post 'remove_basket_item/:course_id', to: 'parent/courses#remove_basket_item', as: :remove_basket_item
   #   get 'products/:id' => 'catalog#view'

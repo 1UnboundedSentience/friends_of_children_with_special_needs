@@ -2,11 +2,24 @@ module Admin
   class ApprovalsController < ApplicationController
 
     def index
-      course_id = params[:approvals][:course_id] if params[:approvals]
-      if course_id
-        @course = Course.where(id: course_id).first
-        @registration_items = RegistrationItem.by_course(course_id)
+      @course =  Course.where(id: params[:course_id]).first
+      if @course
+        @registration_items = RegistrationItem.by_course(@course.id)
+      else
+        @registration_items = Course.by_coordinator(current_user).map(&:registration_items).flatten
       end
+    end
+
+    def update_status
+      registration_item = RegistrationItem.where(id: params[:registration_item_id]).first
+      registration_item.update_attributes(status: status_to_update(registration_item))
+      redirect_to approvals_path
+    end
+
+    private
+
+    def status_to_update(registration_item)
+      registration_item.is_enrolled? ? RegistrationItem::STATUS[:ACCEPTED] : RegistrationItem::STATUS[:ENROLLED]
     end
   end
 end

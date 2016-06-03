@@ -102,6 +102,7 @@
 
   registration = Registration.create_with(photo_waiver: true,
                                           term: active_term,
-                                          status: Registration::STATUS[:enrolled],
                                           signature_svg: "my signature for seed").find_or_create_by(student: student)
-  RegistrationItem.create(registration: registration, course: course)
+  RegistrationItem.create(registration: registration,
+                          course: course,
+                          status: RegistrationItem::STATUS[:ENROLLED])

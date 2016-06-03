@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160531164449) do
+ActiveRecord::Schema.define(version: 20160603173638) do
 
   create_table "course_dates", force: :cascade do |t|
     t.integer  "course_id"
@@ -66,14 +66,14 @@ ActiveRecord::Schema.define(version: 20160531164449) do
     t.integer  "course_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "status"
   end
 
   create_table "registrations", force: :cascade do |t|
     t.text     "signature_svg"
     t.boolean  "photo_waiver"
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
-    t.string   "status",        default: "enrolled"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.integer  "student_id"
   end
 

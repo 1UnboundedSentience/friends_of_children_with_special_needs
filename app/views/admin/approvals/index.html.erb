@@ -1,11 +1,13 @@
 
 <h2> Enter a course to see registered students </h2>
-<%= form_for :approvals, method: 'get', url: approvals_path, html: {:class => 'form-inline'} do |f| %>
-    Course ID <%= f.text_field :course_id, :size => "40" %>
-    <%= f.button 'Search' %>
+<%= form_tag  approvals_path, method: 'get' do %>
+    Course ID <%= text_field_tag :course_id, params[:course_id] %>
+    <%= submit_tag 'Search', name: nil %>
 <% end %>
 
 <% if @course %>
+
+  <%= hidden_field_tag :course_id, @course.id %>
   <h3>Registered Students for '<%= link_to @course.name, courses_path(@course.id) %>' for '<%= @course.term.name %>' </h3>
 
   <table id="courses" class="table table-striped">
@@ -16,6 +18,7 @@
       <th>Status</th>
       <th>Previously Registered</th>
       <th>Registration Date</th>
+      <th>Actions</th>
     </tr>
     </thead>
     <tbody>
@@ -35,6 +38,13 @@
           <td><%= registration_item.status %></td>
           <td>No for Now</td>
           <td><%= registration_item.created_at %></td>
+          <td>
+            <% if  registration_item.is_enrolled? %>
+                <%= link_to 'Accept', update_status_path(registration_item), :class => 'btn btn-mini', method: :post %>
+            <% elsif registration_item.is_accepted? %>
+                <%= link_to 'Reject', update_status_path(registration_item), :class => 'btn btn-mini', method: :post %>
+            <% end %>
+          </td>
         </tr>
       <% end %>
     <% end %>

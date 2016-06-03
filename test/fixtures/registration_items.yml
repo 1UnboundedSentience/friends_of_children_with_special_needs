@@ -3,3 +3,4 @@
 valid_registration_item:
   course: active
   registration: valid_registration
+  status: enrolled

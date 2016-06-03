@@ -4,7 +4,6 @@ valid_registration:
   signature_svg: This is a long svg value
   photo_waiver: true
   student: valid_student
-  status: Registration::STATUS[:approved]
 
 invalid_registration_without_signature:
   student: valid_student
