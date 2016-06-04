@@ -21,9 +21,11 @@ Rails.application.routes.draw do
     resource :registration, only: [:new, :create, :show]
   end
 
+  get '/admin', to: 'admin/home#index'
   scope module: :admin do
     resources :courses
     resources :approvals, only: [:index]
+
   end
 
   resources :home

@@ -1,0 +1,10 @@
+<table id="admin-navigation">
+
+  <% if current_user.is_coordinator? %>
+      <%= render partial: 'coordinator_menu' %>
+  <% end %>
+
+  <% if current_user.is_admin? %>
+      <%= render partial: 'admin_menu' %>
+  <% end %>
+</table>
