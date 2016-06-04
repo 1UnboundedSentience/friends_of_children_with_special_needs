@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'courses/create'
+
+  get 'courses/update'
+
+  get 'courses/index'
+
+  get 'courses/destroy'
+
   # resources :registrations, only: %i(index)
   # resources :students, only: [] do
   #   resources :registrations, only: %i(destroy), shallow: true

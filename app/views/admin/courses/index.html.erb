@@ -1,0 +1,47 @@
+<h1>List of Courses</h1>
+
+<h3>
+  <%= link_to "New Course", new_course_path %>
+</h3>
+<div class="showRegClass">
+  <table class="table">
+    <thead>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Location</th>
+      <th>Instructor</th>
+      <th>Coordinator</th>
+      <th>Registration Dates</th>
+      <th>Fees</th>
+      <th>Age Group</th>
+      <th>Course Dates</th>
+      <th>Course Times</th>
+      <th>Actions</th>
+    </thead>
+    <tbody>
+      <%if @courses.present? %>
+        <% @courses.each do |course| %>
+          <tr id="course_row">
+            <td id="course_data"><%= link_to course.name, course_path(course) %></td>
+            <td id="course_data"><%= course.description %></td>
+            <td id="course_data"><%= course.location %></td>
+            <td id="course_data"><%= course.instructor_name %></td>
+            <td id="course_data"><%= course.coordinator_name %></td>
+            <td id="course_data"><%= course.registration_start.to_date %> <b>to</b> <%= course.registration_end.to_date %> </td>
+            <!--TODO money should have symbol -->
+            <td id="course_data"><%= humanize_money_from_cents(course.fees_in_cents) %></td>
+            <td id="course_data"><%= course.lowest_age %> to <%= course.highest_age %> </td>
+            <td id="course_data"><%= humanize_course_dates(course) %></td>
+            <td id="course_data"><%= humanize_course_times(course) %></td>
+            <td>
+              <%= link_to "Delete Course", course_path(course), method: :delete, data: {confirm: 'Are you sure?'}%>
+              <%= link_to "Edit Course", course_path(course), method: :post %>
+            </td>
+          </tr>
+        <% end %>
+      <% else %>
+        <h3> Currently there are no courses found. Please create your first course.</h3>
+      <% end %>
+     </tbody>
+  </table>
+</div>
