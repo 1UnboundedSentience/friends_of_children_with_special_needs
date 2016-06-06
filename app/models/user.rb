@@ -10,5 +10,10 @@ class User < ActiveRecord::Base
 
   accepts_nested_attributes_for :person
 
+  scope :by_name, -> { joins(:person).order('people.last_name, people.first_name') }
+
+  scope :instructors, -> {where(is_instructor: true).by_name}
+  scope :coordinators, ->  { where(is_coordinator: true).by_name}
+
   delegate :name, :display_name, to: :person
 end

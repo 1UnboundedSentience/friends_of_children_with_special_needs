@@ -24,7 +24,7 @@ module Admin
         flash[:success] = "Successfully created course"
         redirect_to course_path(@course)
       else
-        flash[:error] = @course.errors.full_messages.to_sentence
+        flash[:alert] = @course.errors.full_messages.to_sentence
         render action: "new"
       end
     end
@@ -51,7 +51,7 @@ module Admin
     private
 
     def course_params
-      params.require(:course).permit(:name, :description)
+      params.require(:course).permit(:name, :description, :location, :instructor_id, :comments, :coordinator_id,)
     end
   end
 end

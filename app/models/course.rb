@@ -20,6 +20,10 @@ class Course < ActiveRecord::Base
   scope :by_coordinator, ->(coordinator_id) { where("coordinator_id = ?", coordinator_id) }
   scope :by_term, ->(term_id) { where("term_id = ?", term_id) }
 
+  validates :instructor, presence: true
+  validates :coordinator, presence: true
+  validates :name, presence: true
+
   def Course.for_student(student)
     where("? BETWEEN registration_start AND registration_end AND lowest_age < ? AND highest_age > ?", Time.now, student.age, student.age)
   end

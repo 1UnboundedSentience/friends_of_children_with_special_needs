@@ -1,7 +1,7 @@
 <div class="showRegClass">
   <h2 id="courseTitle"> Create New Course</h2>
 
-  <%= form_for @course, @person do |f| %>
+  <%= form_for @course do |f| %>
     <table class="table">
       <tbody valign="center">
       <tr>
@@ -18,11 +18,20 @@
       </tr>
       <tr>
         <td><%= label_tag(:instructor) %></td>
-        <td>TODO</td>
+        <% instructors = User.instructors %>
+        <td><%= f.select :instructor_id,
+                         options_for_select(instructors.collect{ |instructor| [instructor.person.display_name, instructor.id] },
+                                            @course.instructor_id),
+                         include_blank: true %>
+        </td>
       </tr>
       <tr>
         <td><%= label_tag(:coordinator) %></td>
-        <td>TODO</td>
+        <% coordinators = User.coordinators %>
+        <td><%= f.select :coordinator_id,
+                         options_for_select(coordinators.collect{ |coordinator| [coordinator.person.display_name, coordinator.id] },
+                                            @course.coordinator_id),
+                         include_blank: true %>
       </tr>
       <tr>
         <td><%= label_tag(:registration_start) %></td>
