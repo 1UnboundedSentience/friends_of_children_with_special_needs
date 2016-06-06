@@ -1,5 +1,8 @@
 class Course < ActiveRecord::Base
-  monetize :fees_in_cents, allow_nil: true
+  monetize :fees_in_cents, allow_nil: false,
+           :numericality => {
+              :greater_than_or_equal_to => 0
+  }
 
   #todo add validation that name, instrucotr, coordinator etc are required
 

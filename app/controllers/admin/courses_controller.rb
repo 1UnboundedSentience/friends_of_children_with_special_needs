@@ -51,7 +51,8 @@ module Admin
     private
 
     def course_params
-      params.require(:course).permit(:name, :description, :location, :instructor_id, :comments, :coordinator_id,)
+      params.require(:course).permit(
+          :name, :description, :location, :instructor_id, :comments, :coordinator_id, :registration_start, :registration_end, :term_id, :fees_in)
     end
   end
 end

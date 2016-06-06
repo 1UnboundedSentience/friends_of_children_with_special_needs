@@ -17,6 +17,13 @@
         <td><%= f.text_field :location %></td>
       </tr>
       <tr>
+        <td><%= label_tag(:term) %></td>
+        <td><%= f.select :term_id,
+                         options_for_select(Term.all.collect{ |term| [term.name, term.id] },
+                                            @course.term_id),
+                         include_blank: true %> </td>
+      </tr>
+      <tr>
         <td><%= label_tag(:instructor) %></td>
         <% instructors = User.instructors %>
         <td><%= f.select :instructor_id,
@@ -35,15 +42,15 @@
       </tr>
       <tr>
         <td><%= label_tag(:registration_start) %></td>
-        <td> TODO </td>
+        <td> <%= f.date_field :registration_start %> </td>
       </tr>
       <tr>
         <td><%= label_tag(:registration_end) %></td>
-        <td>TODO </td>
+        <td> <%= f.date_field :registration_end %> </td>
       </tr>
       <tr>
         <td><%= label_tag(:course_fees) %></td>
-        <td>TODO</td>
+        <td>  <%= f.text_field :fees_in %> </td>
       </tr>
       <tr>
         <td><%= label_tag(:lowest_age) %></td>
