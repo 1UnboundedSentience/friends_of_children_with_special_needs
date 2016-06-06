@@ -52,6 +52,10 @@ class CourseTest < ActiveSupport::TestCase
     assert_course_dates('', courses(:active).course_dates.size)
   end
 
+  test 'builds_course_dates with existing value should not add a duplicate' do
+    assert_course_dates(courses(:active).course_dates.first.date, courses(:active).course_dates.size)
+  end
+
   def assert_course_dates(input_str, expected_size)
     course = courses(:active)
     course.course_dates_str = input_str
@@ -67,10 +71,14 @@ class CourseTest < ActiveSupport::TestCase
     assert_course_times('', courses(:active).course_times.size)
   end
 
+  test 'builds_course_times with existing value should not add a duplicate' do
+    assert_course_times(courses(:active).course_times.first.military_time, courses(:active).course_times.size)
+  end
+
   def assert_course_times(input_str, expected_size)
     course = courses(:active)
     course.course_times_str = input_str
     course.build_course_times
-    assert_equal course.course_times.size, expected_size
+    assert_equal expected_size, course.course_times.size
   end
 end

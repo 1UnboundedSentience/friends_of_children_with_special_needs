@@ -49,15 +49,17 @@ class Course < ActiveRecord::Base
 
   def build_course_dates
     return unless course_dates_str
+    existing_course_dates = course_dates.map(&:date)
     course_dates_str.split(',').each do |date|
-      course_dates << CourseDate.new(date: date)
+      course_dates << CourseDate.new(date: date) unless existing_course_dates.include? date
     end
   end
 
   def build_course_times
     return unless course_times_str
+    existing_course_times = course_times.map(&:military_time)
     course_times_str.split(',').each do |military_time|
-      course_times << CourseTime.new(military_time: military_time)
+      course_times << CourseTime.new(military_time: military_time) unless existing_course_times.include? military_time
     end
   end
 end

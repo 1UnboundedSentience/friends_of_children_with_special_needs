@@ -8,6 +8,11 @@ module Admin
     def index
       #TODO add filter criteria and paging
       @courses = Course.all
+      # if current_user.is_admin?
+      #   @courses = Course.all
+      # elsif current_user.is_coordinator?
+      #   @courses = Course.by_coordinator current_user.id
+      # end
     end
 
     def new
@@ -31,9 +36,9 @@ module Admin
 
     def update
       @course = Course.where(id: params[:id]).first
-      if @course.update_attributes(params[:course])
+      if @course.update_attributes(course_params)
         flash[:success] = "Successfully updated course."
-        redirect_to admin_courses_path
+        redirect_to courses_path
       else
         flash[:error] = @course.errors.full_messages.to_sentence
         render action: "edit"
@@ -45,7 +50,7 @@ module Admin
       #TODO do not allow deletion if there are registrations using the course
       @course.destroy
       flash[:notice] = "Successfully deleted course."
-      redirect_to courses_index_path
+      redirect_to courses_path
     end
 
     private
