@@ -43,4 +43,34 @@ class CourseTest < ActiveSupport::TestCase
     student = registration.student
     refute course.can_be_added?(student.id)
   end
+
+  test 'builds_course_dates from valid CSV string' do
+    assert_course_dates('2014-03-14, 2015-07-23', courses(:active).course_dates.size + 2)
+  end
+
+  test 'builds_course_dates with empty value' do
+    assert_course_dates('', courses(:active).course_dates.size)
+  end
+
+  def assert_course_dates(input_str, expected_size)
+    course = courses(:active)
+    course.course_dates_str = input_str
+    course.build_course_dates
+    assert_equal course.course_dates.size, expected_size
+  end
+
+  test 'builds_course_times from valid CSV string' do
+    assert_course_times('15:30, 13:30', courses(:active).course_times.size + 2)
+  end
+
+  test 'builds_course_times with empty value' do
+    assert_course_times('', courses(:active).course_times.size)
+  end
+
+  def assert_course_times(input_str, expected_size)
+    course = courses(:active)
+    course.course_times_str = input_str
+    course.build_course_times
+    assert_equal course.course_times.size, expected_size
+  end
 end

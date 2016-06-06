@@ -52,7 +52,8 @@ module Admin
 
     def course_params
       params.require(:course).permit(
-          :name, :description, :location, :instructor_id, :comments, :coordinator_id, :registration_start, :registration_end, :term_id, :fees_in)
+          :name, :description, :location, :instructor_id, :comments, :coordinator_id, :term_id, :fees_in,
+          :registration_start, :registration_end, :lowest_age, :highest_age, :course_dates_str, :course_times_str)
     end
   end
 end
