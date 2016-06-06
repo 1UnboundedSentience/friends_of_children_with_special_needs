@@ -47,9 +47,12 @@ module Admin
 
     def destroy
       @course = Course.where(id: params[:id]).first
-      #TODO do not allow deletion if there are registrations using the course
-      @course.destroy
-      flash[:notice] = "Successfully deleted course."
+      if @course.registrations.size > 0
+        flash[:alert] = "Course has registrations and cannot be deleted"
+      else
+        @course.destroy
+        flash[:notice] = "Successfully deleted course."
+      end
       redirect_to courses_path
     end
 
