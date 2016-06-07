@@ -1,0 +1,34 @@
+<h1>List of Terms</h1>
+
+<h3>
+  <%= link_to "New term", new_term_path %>
+</h3>
+
+<div class="showRegClass">
+  <table class="table">
+    <thead>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+    </thead>
+    <tbody>
+      <%if @terms.present? %>
+        <% @terms.each do |term| %>
+          <tr id="term_row">
+            <td id="term_data"><%= link_to term.name, term_path(term) %></td>
+            <td id="term_data"><%= term.name %></td>
+            <td id="term_data"><%= term.start_date %></td>
+            <td id="term_data"><%= term.end_date %></td>
+            <td>
+              <%= link_to "Edit term", edit_term_path(term), method: :get %> <br>
+              <%= link_to "Delete term", term, method: :delete, data: {confirm: 'Are you sure?'}%>
+            </td>
+          </tr>
+        <% end %>
+      <% else %>
+        <h3> Currently there are no terms found. Please create your first term.</h3>
+      <% end %>
+     </tbody>
+  </table>
+</div>

@@ -1,0 +1,34 @@
+<%= form_for @term do |f| %>
+    <table class="table">
+      <tbody valign="center">
+      <tr>
+        <td><%= label_tag(:name) %></td>
+        <td><%= f.text_field :name, size: 40 %> </td>
+      </tr>
+      <tr>
+        <td> <%= label_tag(:description) %> </td>
+        <td><%= f.text_area :description, size: '60x3' %></td>
+      </tr>
+            <tr>
+        <td> <%= label_tag(:start_date) %> </td>
+        <td><%= f.text_area :start_date%></td>
+      </tr>
+            <tr>
+        <td> <%= label_tag(:end_date) %> </td>
+        <td><%= f.text_area :end_date%></td>
+      </tr>
+
+
+      <tr>
+        <td> <%= f.submit "Save" %> </td>
+      </tr>
+
+      <tr>
+        <td>
+          <%= link_to t('.back', :default => 'Back'), :back %>
+        </td>
+        <td></td>
+      </tr>
+      </tbody>
+    </table>
+<% end %>
