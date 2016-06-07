@@ -8,13 +8,9 @@ class Course < ActiveRecord::Base
   belongs_to :coordinator, class_name: "User", foreign_key: "coordinator_id"
   belongs_to :term
 
-  has_many :course_dates
-  has_many :course_times
   has_many :registration_items
   has_many :registrations, through: :registration_items
   has_many :students, through: :registrations
-
-  attr_accessor :course_dates_str, :course_times_str
 
   scope :active, -> { where("? BETWEEN registration_start AND registration_end", Date.today)}
   scope :within_age_group, ->(age) {
@@ -26,6 +22,7 @@ class Course < ActiveRecord::Base
   validates :instructor, :coordinator, :term, presence: true
   validates :name, :location, presence: true
   validates :course_dates, :course_times, presence: true
+  validates :name, uniqueness: true
 
   def Course.for_student(student)
     where("? BETWEEN registration_start AND registration_end AND lowest_age < ? AND highest_age > ?", Time.now, student.age, student.age)

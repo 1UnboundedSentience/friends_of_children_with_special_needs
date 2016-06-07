@@ -3,4 +3,6 @@ class Term < ActiveRecord::Base
 
   default_scope {order('start_date DESC')}
   scope :active, -> { where("? BETWEEN start_date AND end_date", Date.today)}
+
+  validates :name, uniqueness: true
 end

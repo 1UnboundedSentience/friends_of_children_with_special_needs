@@ -16,4 +16,6 @@ class User < ActiveRecord::Base
   scope :coordinators, ->  { where(is_coordinator: true).by_name}
 
   delegate :name, :display_name, to: :person
+
+  validates :email, uniqueness: true
 end

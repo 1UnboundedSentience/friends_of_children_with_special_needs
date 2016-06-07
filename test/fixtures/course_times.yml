@@ -1,5 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-valid_course_time:
-  course: active
-  military_time: 15:30

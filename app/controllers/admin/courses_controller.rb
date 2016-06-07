@@ -27,7 +27,7 @@ module Admin
       @course = Course.new(course_params)
       if @course.save
         flash[:success] = "Successfully created course"
-        redirect_to course_path(@course)
+        redirect_to courses_path
       else
         flash[:alert] = @course.errors.full_messages.to_sentence
         render action: "new"
@@ -61,7 +61,7 @@ module Admin
     def course_params
       params.require(:course).permit(
           :name, :description, :location, :instructor_id, :comments, :coordinator_id, :term_id, :fees_in,
-          :registration_start, :registration_end, :lowest_age, :highest_age, :course_dates_str, :course_times_str)
+          :registration_start, :registration_end, :lowest_age, :highest_age, :course_dates, :course_times)
     end
   end
 end

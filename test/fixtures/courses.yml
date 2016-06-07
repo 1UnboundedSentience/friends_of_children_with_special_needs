@@ -13,6 +13,8 @@ active:
   lowest_age: 1
   highest_age: 100
   term: active_term
+  course_dates: '2015-05-17, 2015-05-17'
+  course_times: '15:50, 23:00'
 
 expired:
   name: Expired art class
@@ -27,3 +29,5 @@ expired:
   lowest_age: 1
   highest_age: 100
   term: past_term
+  course_dates: '2015-05-10, 2015-05-15'
+  course_times: '23:59'

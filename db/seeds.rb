@@ -54,9 +54,9 @@
                   comments: "Please bring your cameras with you. You will want a picture of the artwork",
                   lowest_age: 1,
                   highest_age: 16,
-                  term: active_term).find_or_create_by(name: 'Art class for seed')
-  CourseDate.create_with(course: course).find_or_create_by(date: "2014-02-29")
-  CourseTime.create_with( course: course).find_or_create_by(military_time: "15:30")
+                  term: active_term,
+                  course_dates: 'Every 2 weeks starting 2015-05-13',
+                  course_times: '3PM on Wednesdays and 4 PM on Friday').find_or_create_by(name: 'Art class for seed')
 
   Course.create_with(
       description: 'Best Chinese class!!!',
@@ -69,9 +69,9 @@
       comments: "Please bring art supplies",
       lowest_age: 1,
       highest_age: 16,
-      term: active_term).find_or_create_by(name: 'Chinese class for seed')
-  CourseDate.create_with(course: course).find_or_create_by(date: "2014-03-29")
-  CourseTime.create_with( course: course).find_or_create_by(military_time: "16:30")
+      term: active_term,
+      course_dates: '2015-05-13, 2015-06-14',
+      course_times: '3PM on Wednesdays and 4 PM on Friday').find_or_create_by(name: 'Chinese class for seed')
 
 
   Course.create(name: "Math class for seed",
@@ -85,7 +85,9 @@
                 comments: "Bring your calculator",
                 lowest_age: 1,
                 highest_age: 16,
-                term: active_term)
+                term: active_term,
+                course_dates: '2015-05-13',
+                course_times: '5 PM on Sundays')
 
   student = Student.create_with(person: student_person,
                         allergies: "Nuts and mean people",
