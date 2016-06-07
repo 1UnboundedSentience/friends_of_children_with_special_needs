@@ -8,9 +8,9 @@
 
 <div class="row">
   <div class="col-sm-7">
-    
+
     <div class="panel panel-info">
-      
+
       <div class="panel-heading" id="headerNewStudent">
         <div class="panel-title">
           <strong>Add Student Information</strong>
@@ -20,117 +20,117 @@
       <div class="panel-body">
         <table class="table table-striped ">
           <tbody>
-          <%= form_for @student do |f| %>     
-            <%= f.fields_for :person_attributes do |pf| %> 
-              <tr> 
+          <%= form_for @student do |f| %>
+            <%= f.fields_for :person_attributes do |pf| %>
+              <tr>
                 <td>
                   <%= pf.label 'Name : ' %>
                 </td>
                 <td>
-                  <%= pf.text_field :first_name, 
+                  <%= pf.text_field :first_name,
                       placeholder: "First Name", class: "form_control"%>
-                  <%= pf.text_field :last_name, placeholder: "Last Name", 
+                  <%= pf.text_field :last_name, placeholder: "Last Name",
                       class: "form_control"%>
                   </td>
                 </tr>
-              <% end %> 
+              <% end %>
               <tr>
                 <td><%= f.label 'Birthdate : ' %></td>
                 <td>
-                  <%= f.date_field :birthday, placeholder: "Birthdate", 
+                  <%= f.date_field :birthday, placeholder: "Birthdate",
                       class: "form_control"%>
                 </td>
-              </tr>              
+              </tr>
               <tr>
                 <td><%= f.label 'Gender : ' %></td>
                 <td>
-                  <%= f.radio_button :gender, 'male'%> 
+                  <%= f.radio_button :gender, 'male'%>
                   <%= label 'male-gender', 'Male' %>
-                  <%= f.radio_button :gender, 'female'%> 
+                  <%= f.radio_button :gender, 'female'%>
                   <%= label 'female-gender', 'Female' %>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <%= f.label 'Allergies : ' %> 
+                  <%= f.label 'Allergies : ' %>
                 </td>
-                <td>  
+                <td>
                   <div>
-                  <%= f.text_field :allergies, placeholder: "Allergies", 
+                  <%= f.text_field :allergies, placeholder: "Allergies",
                       class: "form_control"%>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <%= f.label 'Diagonsis : ' %>
+                  <%= f.label 'Diagnosis : ' %>
                 </td>
-                <td>  
+                <td>
                   <%= f.text_field :diagnosis, placeholder: "Diagnosis", class: "form_control"%>
                 </td>
               </tr>
               <tr>
                 <td><%= f.label 'Behavior Intervention Plan : ' %></td>
                 <td>
-                  <%= f.radio_button :behavior_intervention_plan, 'true'%> 
+                  <%= f.radio_button :behavior_intervention_plan, 'true'%>
                   <%= label 'behavior-intervention-plan-yes', 'Yes' %>
-                  <%= f.radio_button :behavior_intervention_plan, 'false'%> 
+                  <%= f.radio_button :behavior_intervention_plan, 'false'%>
                   <%= label 'behavior-intervention-plan-no', 'No' %>
                 </td>
-              </tr>              
+              </tr>
               <tr>
                 <td>
-                  <%= f.label 'Talents : ' %> 
+                  <%= f.label 'Talents : ' %>
                 </td>
-                <td>  
-                  <%= f.text_field :talents, placeholder: "Talents", 
+                <td>
+                  <%= f.text_field :talents, placeholder: "Talents",
                       class: "form_control"%>
                 </td>
-              </tr> 
+              </tr>
               <tr>
                 <td>
-                  <%= f.label 'Comments : ' %> 
+                  <%= f.label 'Comments : ' %>
                 </td>
-                <td>  
-                  <%= f.text_field :comment, placeholder: "Comments", 
+                <td>
+                  <%= f.text_field :comment, placeholder: "Comments",
                       class: "form_control"%>
                 </td>
-              </tr>               
+              </tr>
               <tr>
                 <td> <%= f.label 'One on one aide?: '%></td>
                 <td>
-                  <%= f.radio_button :one_on_one_aide, 'true'%> 
+                  <%= f.radio_button :one_on_one_aide, 'true'%>
                   <%= label 'one-one_aide-yes', 'Yes' %>
-                  <%= f.radio_button :one_on_one_aide, 'false'%> 
+                  <%= f.radio_button :one_on_one_aide, 'false'%>
                   <%= label 'one-one_aide-no', 'No' %>
                 </td>
               </tr>
-              <%= f.fields_for :student_contacts_attributes do |scf| %>  
-                <tr>
+              <%= f.fields_for :student_contacts_attributes do |scf| %>
+                <!-- <tr>
                   <td>
                     <%= scf.label 'Relationship to Student: ' %>
                   </td>
                   <td>
                     <%= scf.text_field :relationship_to_student %>
                   </td>
-                </tr>
-              <% end %>  
+                </tr> -->
+              <% end %>
               <tr>
                 <td></td>
                 <td>
-                  <%= f.submit "Add Student", class:"btn btn-info btn-md" %> 
+                  <%= f.submit "Add Student", class:"btn btn-info btn-md" %>
                 </td>
               </tr>
             <% end %>
           </tbody>
         </table>
       </div>
-    </div> 
+    </div>
   </div>
 
   <div class="col-sm-5">
      <div class="panel panel-info">
-      
+
       <div class="panel-heading">
         <div class="panel-title">
           <strong>Current Students</strong>
@@ -139,12 +139,12 @@
 
       <div class="panel-body">
         <table class="table table-striped ">
-          
+
           <thead>
             <tr>
               <td>Student Name</td>
               <td>Gender</td>
-              <td>New Contact?</td>
+              <!-- <td>New Contact?</td> -->
             </tr>
           </thead>
 
@@ -156,15 +156,15 @@
               </td>
               <td>
                 <%= curr_student.gender %>
-              </td> 
+              </td>
               <td>
-                <%= link_to "Add", new_student_contact_path(:student_id => curr_student.id), 
+                <%= link_to "Add Emergency Contacts", new_student_contact_path(:student_id => curr_student.id),
                     class: "button btn-sm btn-info" %>
               </td>
             </tr>
             <% end %>
-          </tbody> 
-        </table>  
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
@@ -173,12 +173,12 @@
 
 <div class="row">
   <div class="col-sm-1">
-    <%= link_to "Parent_Info", person_path(current_user), class: "button btn-sm btn-info" %> 
+    <%= link_to "Parent_Info", person_path(current_user), class: "button btn-sm btn-info" %>
   </div>
-  <div class="col-sm-1">  
-    <%= link_to "Contacts", student_contacts_path, class: "button btn-sm btn-info" %> 
+  <div class="col-sm-1">
+    <%= link_to "Contacts", student_contacts_path, class: "button btn-sm btn-info" %>
   </div>
-  <div class="col-sm-1">  
-    <%= link_to "All_Students", students_path, class: "button btn-sm btn-info" %> 
-  </div>  
+  <div class="col-sm-1">
+    <%= link_to "All_Students", students_path, class: "button btn-sm btn-info" %>
+  </div>
 </div>
