@@ -5,6 +5,7 @@ class StudentsController < ApplicationController
 #TODO - do not allow student contacts to be added before adding stuidents
   def index
    @students = current_user.students
+   #binding.pry
   end
 
   def show
@@ -17,7 +18,7 @@ class StudentsController < ApplicationController
     @person = Person.new
     @students = current_user.students
   end
-    
+
   def edit
     @student = Student.find(params[:id])
     @person = Person.find(@student.person_id)

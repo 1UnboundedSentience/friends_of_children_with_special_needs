@@ -6,12 +6,12 @@
 
 <div class="row">
   <div class="col-sm-12">
-    
+
     <div class="panel panel-info">
-      
+
       <div class="panel-heading">
         <div class="panel-title">
-          <strong><%= link_to "#{current_user.person.first_name} #{current_user.person.last_name}'s Students", edit_person_path(@current_user.person) %></strong>
+
         </div>
       </div>
 
@@ -26,7 +26,7 @@
             </th>
             <th>
               Gender
-            </th>              
+            </th>
             <th>
               One on One Aide?
             </th>
@@ -35,25 +35,25 @@
             </th>
             <th>
               Add Contact?
-            </th>            
+            </th>
           </thead>
 
-          <tbody> 
+          <tbody>
             <% @students.each do |student| %>
               <tr>
-                <td><%= link_to "#{student.person.first_name} #{student.person.last_name}", edit_student_path(student) %></td>
+                <td> </td>
                 <td><%= student.birthday %></td>
                 <td><%= student.gender %></td>
                 <td><%= student.one_on_one_aide %></td>
                 <td><%= student.behavior_intervention_plan %></td>
                 <td>
-                <%= link_to "Add", new_student_contact_path(:student_id => student.id), 
+                <%= link_to "Add", new_student_contact_path(:student_id => student.id),
                     class: "button btn-sm btn-info" %>
                 </td>
               </tr>
-            <% end %>            
+            <% end %>
           </tbody>
-        </table>  
+        </table>
       </div>
     </div>
   </div>
@@ -62,7 +62,7 @@
 <div class="row">
   <div class="col-sm-1">
     <%= link_to "Parent_Info", person_path(current_user), class: "button btn-sm btn-info" %>
-  </div> 
+  </div>
   <div class="col-sm-1">
     <%= link_to "Contacts", student_contacts_path, class: "button btn-sm btn-info" %>
   </div>

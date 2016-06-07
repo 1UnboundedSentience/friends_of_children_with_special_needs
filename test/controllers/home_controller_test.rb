@@ -6,4 +6,8 @@ class HomeControllerTest < ActionController::TestCase
     assert_response :redirect
   end
 
+  test "should stay on sign in page if not signed in and user attempts to click a resource-specific button" do
+
+  end
+
 end

@@ -5,11 +5,11 @@
 	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 	  <%= csrf_meta_tags %>
-    <link rel="icon" 
-         type="image/png" 
+    <link rel="icon"
+         type="image/png"
               href="/assets/FCSN_Logo_transparent-49e38f0520985afb57f8b58f579ef54414b84357de4a0010e6956f9273bbf810.gif">
 	</head>
-  <body> 
+  <body>
 		<nav class="navbar navbar-default navbar-fixed-top">
 	    <div class="container-fluid">
 	      <!-- Brand and toggle get grouped for better mobile display -->
@@ -30,10 +30,10 @@
 	          <li class="active"><%= link_to 'Home', root_path %></li>
 	          <li class="active"><%= link_to 'Select Classes', course_selection_path %></li>
 
-	          <!-- Link to all students - just for convenience -->
+<!-- Link to all students - just for convenience -->
 	          <li class="active"><%= link_to 'My students', students_path %></li>
 	        </ul>
-	        
+
 					<ul class="nav navbar-nav navbar-right">
 	        <% if user_signed_in? %>
 	            <li><%= link_to 'Profile Info', root_path %></li>
@@ -46,7 +46,7 @@
 	    </div><!-- /.container-fluid -->
     </nav>
 
-    <div class = 'container'> 
+    <div class = 'container'>
 	    <% unless notice.nil? %>
 	      <div class="alert alert-success" role="alert"><p class="notice"><%= notice %></p></div>
 	    <% end %>

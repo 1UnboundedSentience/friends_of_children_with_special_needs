@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   scope module: :admin do
     resources :courses
     resources :approvals, only: [:index]
-
+    resources :terms
   end
 
   resources :home
